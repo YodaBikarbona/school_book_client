@@ -11,8 +11,9 @@
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary" routerLink="/parentDashboard" class="app" (click)="closeMenu(null, drawer)">
+    <mat-toolbar color="primary" routerLink="/adminDashboard" class="app" (click)="closeMenu(null, drawer)">
       <i class="fas fa-school appTitle"></i> School Book
+      <!--<fa-icon [icon]="faCoffee"></fa-icon>-->
     </mat-toolbar>
     <!--mat-sidenav #appDrawer mode="over" opened="false"-->
     <mat-nav-list>
@@ -21,13 +22,17 @@
     </mat-nav-list>
     <div class="text-center logout p-1">
       <button type="submit" mat-raised-button color="primary" class="btn-block"
-              (click)="logout()">Logout
+              (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
       </button>
       <div class="mt-1 copyright">
         Copyright
-        <i class="material-icons">
-          copyright
-        </i> 2020 Mihael Perić
+        <!--<i class="material-icons">-->
+          <!--copyright-->
+        <!--</i>-->
+        <i class="fas fa-copyright"></i>
+        2020 Mihael Perić
       </div>
     </div>
   </mat-sidenav>

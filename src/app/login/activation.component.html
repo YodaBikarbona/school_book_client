@@ -1,0 +1,27 @@
+<div mat-dialog-content class="text-center">
+  <p>Activation</p>
+  <form (submit)="activateUser(code)">
+    <div>
+      <mat-form-field>
+        <mat-label>Activation code</mat-label>
+        <input type="text" matInput required name="code" [(ngModel)]="code">
+        <mat-icon matSuffix>vpn_key</mat-icon>
+      </mat-form-field>
+    </div><div class="text-center">
+      <button type="submit" [disabled]="code ? false: true" mat-raised-button color="primary" class="btn-block">Activate</button>
+    </div>
+    <div class="text-center mt-1">
+      <button type="button" mat-raised-button color="primary" class="btn-block" >Resend code</button>
+    </div>
+    <div class="text-center mt-1">
+    <button type="button" mat-raised-button class="btn-block" cdkFocusInitial
+            (click)="onNoClick()">Close</button>
+  </div>
+  </form>
+</div>
+<!--<div mat-dialog-actions class="w-100">-->
+  <!--<div class="w-50 m-auto text-center">-->
+    <!--<button type="button" mat-raised-button class="btn-block w-90" cdkFocusInitial-->
+            <!--(click)="onNoClick()">Close</button>-->
+  <!--</div>-->
+<!--</div>-->

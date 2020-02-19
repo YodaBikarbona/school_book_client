@@ -9,7 +9,6 @@ import { NavService } from './nav.service';
 import {AuthenticationService} from '../services/authentication.service';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 import {UserService} from '../services/user.service';
-import {languages, translateFunction} from '../translations/translations';
 import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
@@ -28,23 +27,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   error_message = '';
   lang = '';
   langCode = '';
-  languages = languages;
 
   constructor(private breakpointObserver: BreakpointObserver, private navService: NavService, private autenticationService: AuthenticationService, public router: Router, public userService: UserService, private spinner: NgxSpinnerService) {}
 
   ngOnInit() {
     this.spinner.show();
-    if (!localStorage.getItem('lang')) {
-      localStorage.setItem('lang', 'en');
-      this.langCode = localStorage.getItem('lang');
-      this.changeLangByCode(this.langCode);
-
-    }
-    else {
-      this.langCode = localStorage.getItem('lang');
-      this.changeLangByCode(this.langCode);
-    }
-    this.changeLang(undefined, this.langCode);
 
     // this.userService.getNews().subscribe((data: any) => this.news = data.news, (data: any) => {
     //     this.error_message = data.error.message;
@@ -55,7 +42,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         {
         displayName: 'Admin',
         iconName: 'accessibility',
-        route: "",
+        route: '',
         children: [
           {
             displayName: 'Categories',
@@ -97,6 +84,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   logout() {
     this.spinner.show()
     localStorage.removeItem('auth-token');
+    localStorage.removeItem('userRole');
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
@@ -125,14 +113,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
   //version = VERSION;
   navItems: NavItem[] = [
     {
-      displayName: this._translation('Profile', localStorage.getItem('lang')),
+      displayName: 'Profile',
       iconName: 'account_circle',
       route: 'profile',
     },
     {
-      displayName: this._translation('Bills', localStorage.getItem('lang')),
+      displayName: 'Bills',
       iconName: 'list_alt',
-      route: "bills",
+      route: 'bills',
       /*children: [
         {
           displayName: 'Profits',
@@ -147,18 +135,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
       ]*/
     },
     {
-      displayName: this._translation('Graph', localStorage.getItem('lang')),
+      displayName: 'Graph',
       iconName: 'equalizer',
       route: 'graph',
     },
     {
-      displayName: this._translation('Options', localStorage.getItem('lang')),
+      displayName: 'Options',
       disabled: true,
       iconName: 'settings',
       route: 'settings',
     },
     {
-      displayName: this._translation('Application', localStorage.getItem('lang')),
+      displayName: 'Application',
       iconName: 'apps',
       route: 'application',
     }
@@ -166,38 +154,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngAfterViewInit() {
     this.navService.appDrawer = this.appDrawer;
-  }
-
-  // Translations
-  changeLangByCode(langCode: string) {
-    if (langCode === 'en') {
-      this.lang = 'English';
-    }
-    else if (langCode === 'de') {
-      this.lang = 'German';
-    }
-    else if (langCode === 'hr') {
-      this.lang = 'Croatian';
-    }
-    else {
-      this.langCode = 'en'
-      this.lang = 'English';
-    }
-  }
-
-  changeLang(event, lang: string) {
-    if (!lang) {
-      localStorage.setItem('lang', event.value);
-    }
-    else {
-      localStorage.setItem('lang', lang);
-    }
-    this.langCode = localStorage.getItem('lang');
-    this.changeLangByCode(this.langCode);
-  }
-
-  _translation(key: string, language: string) {
-    return translateFunction(key, language);
   }
 
 }

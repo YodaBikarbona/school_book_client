@@ -1,1 +1,199 @@
+@import "palette";
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@mixin space ($attribute) {
+  @for $i from 1 to 6 {
+    &-#{$i} {
+      #{$attribute}: $i * 10px;
+    }
+  }
+}
+.m {
+  @include space(margin);
+}
+.mb {
+  @include space(margin-bottom)
+}
+.mt {
+  @include space(margin-top)
+}
+.mr {
+  @include space(margin-right)
+}
+.ml {
+  @include space(margin-left)
+}
+.p {
+  @include space(padding);
+}
+.pb {
+  @include space(padding-bottom)
+}
+.pt {
+  @include space(padding-top)
+}
+.pr {
+  @include space(padding-right)
+}
+.pl {
+  @include space(padding-left)
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+// Button
+
+.btn-block {
+  width: 100%
+}
+
+// Text align
+
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+
+// Grid
+
+$break-points: (
+  xs: 0px,
+  sm: 360px,
+  md: 768px,
+  lg: 1000px
+);
+
+$colums: 12;
+
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin breakpoint($breakPoint) {
+  @media screen and (min-width: #{$breakPoint}) {
+    @content;
+  }
+}
+
+@mixin grid {
+  @each $key, $value in $break-points {
+    @include breakpoint($value) {
+      @for $i from 1 through $colums {
+        &-#{$key}-#{$i} {
+          flex: 0 0 100% / $colums * $i;
+        }
+      }
+    }
+  }
+}
+
+.col {
+  @include grid;
+}
+
+[class*='col-'] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
+}
+
+.button {
+  width: 100%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.error_message {
+  font-size: 12px;
+  color: darkred;
+}
+
+.shadow {
+  box-shadow: 0px 10px 20px rgba(128,128,128,0.5);
+}
+
+.m-auto {
+  margin: auto;
+}
+
+/deep/ .mat-toolbar {
+  z-index: 2;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.max-height-500 {
+  max-height: 500px;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.decorationText {
+  text-decoration: underline;
+}
+
+body {
+  background-color: #F2FBE0;
+  color: $dark;
+  a {
+    color: $dark;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: unset;
+  -webkit-text-fill-color: $dark;
+  -webkit-box-shadow: 0 0 0px 1000px #F2FBE0 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

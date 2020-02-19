@@ -1,0 +1,39 @@
+<div class="events">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 p-2">
+      <p class="text-center">School events.</p>
+    </div>
+    <div class="col-md-12 col-sm-12 p-2">
+      <div *ngFor="let e of events">
+        <div class="p-1 mb-1 eventsCard">
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <h5>Title: {{ e.title }}</h5>
+            </div>
+            <div class="col-md-6 col-sm-6 text-right">
+              <p>Created by: {{ e.professor.first_name }} {{ e.professor.last_name }}</p>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <p>Date: {{ e.created }}</p>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <p>Comment: {{ e.comment }}</p>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <p>Event date: {{ e.date }}</p>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <p>School class: {{ e.school_class.name }}</p>
+            </div>
+            <div class="col-md-12 col-sm-12" *ngIf="e.school_subject">
+              <p>School subject: {{ e.school_subject.name }}</p>
+            </div>
+          </div>
+          <!--<div class="text-right w-100">-->
+            <!--<button mat-button class="w-10" (click)="clear(n.id)">Clear</button>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

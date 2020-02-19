@@ -12,7 +12,7 @@ export class JWTHeaderInterceptor implements HttpInterceptor {
     if (token) {
       req = req.clone({headers : new HttpHeaders({
       'Authorization': token,
-      'Lang': localStorage.getItem('lang')
+      'lang': 'en',
         })});
       //req = req.clone({headers: new HttpHeaders().set('Authorization', token)});
     }

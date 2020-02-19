@@ -1,0 +1,56 @@
+<header class="w-100">
+  <div class="title">
+    School Book
+  </div>
+</header>
+<div class="content">
+  <div class="row h-100">
+    <div class="col-md-8 col-sm-0 section">
+      <div class="image">
+        <!--<img src="assets/school_book_image.png">-->
+        <img src="assets/image.png">
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 section">
+      <div class="login p-3">
+        <form (submit)="login(email, password)">
+          <h3 class="mb-3">Login</h3>
+          <mat-form-field class="w-100">
+            <mat-label>Username</mat-label>
+            <input type="email" matInput required name="email" [(ngModel)]="email">
+            <mat-icon matSuffix class="email">account_circle</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>Password</mat-label>
+            <input [type]="showPassword == true ? 'text': 'password'" matInput required name="password" [(ngModel)]="password">
+            <mat-icon class="password" *ngIf="showPassword === false" matSuffix (click)="toogleShowPassword()">visibility_off</mat-icon>
+            <mat-icon class="password" *ngIf="showPassword === true" matSuffix (click)="toogleShowPassword()">visibility</mat-icon>
+          </mat-form-field>
+          <div class="text-center">
+            <button type="submit" [disabled]="email && password ? false: true" mat-raised-button color="primary"
+                    class="btn-block">Sign in
+            </button>
+            <p class="m-2"><a routerLink="/restartPassword">Forgot your password?</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="w-100">
+  <div>
+    Copyright
+    <i class="material-icons">
+      copyright
+    </i> 2020 <br>
+    <i class="material-icons">
+      phone
+    </i> +385 00 000 0000 <br>
+    <i class="material-icons">
+      email
+    </i> schoolbook@gmail.com <br>
+    <i class="material-icons">
+      language
+    </i> www.someschoolpage.com
+  </div>
+</footer>

@@ -1,0 +1,50 @@
+<div mat-dialog-content class="text-center dialog">
+  <div>
+    <p>Grade information</p>
+  </div>
+  <mat-form-field class="w-100">
+    <mat-label>Created</mat-label>
+    <input matInput [ngxMatDatetimePicker]="picker" placeholder="Created date" [(ngModel)]="data.created" disabled>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+    <!--<ngx-mat-timepicker [(ngModel)]="data.created"></ngx-mat-timepicker>-->
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Grade</mat-label>
+    <input type="text" matInput required [(ngModel)]="data.grade" disabled>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Grade type</mat-label>
+    <input type="text" matInput required [(ngModel)]="data.gradeType" disabled>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Comment</mat-label>
+    <input type="text" matInput required [(ngModel)]="data.comment" disabled>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Professor</mat-label>
+    <input type="text" matInput required [(ngModel)]="data.professor" disabled>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Student</mat-label>
+    <input type="text" matInput required [(ngModel)]="data.student" disabled>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>School subject</mat-label>
+    <input type="text" matInput required [(ngModel)]="data.schoolSubject" disabled>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>School class</mat-label>
+    <input type="text" matInput required [(ngModel)]="data.schoolClass" disabled>
+  </mat-form-field>
+  <!--<div class="text-center mt-1">-->
+    <!--<button type="button" mat-raised-button class="btn-block" cdkFocusInitial-->
+            <!--(click)="onNoClick()">Close</button>-->
+  <!--</div>-->
+</div>
+<div mat-dialog-actions class="w-100">
+  <div class="text-center mt-1 w-100">
+    <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial
+            (click)="onNoClick()">Close</button>
+  </div>
+</div>

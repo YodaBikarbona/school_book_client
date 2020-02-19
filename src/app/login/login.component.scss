@@ -1,0 +1,193 @@
+@import "~src/palette";
+.login {
+  position: absolute;
+  width: 370px;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px rgba(128,128,128,0.5);
+  margin: auto;
+  @media (max-width: 899px) {
+    transform: unset;
+    width: 90%;
+    left: unset;
+    top: unset;
+    //margin-top: 50%;
+  }
+  @media (max-width: 767px) {
+    border: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    padding: 0;
+    position: unset;
+  }
+  @media (min-width: 1440px) and (max-width: 2559px) {
+    transform: translate(-25%,-50%);
+  }
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    transform: translate(-40%, -50%);
+  }
+  @media (min-width: 900px) and (max-width: 1023px) {
+    transform: translate(-100%,-50%);
+  }
+  @media (min-width: 768px) and (max-width: 900px) {
+    transform: translate(-100%, 50%);
+  }
+}
+
+///deep/ .mat-select-value {
+//  color: #66FCF1 !important;
+//}
+//
+/deep/ .mat-form-field.mat-focused .mat-form-field-label {
+  color: $dark !important;
+}
+//
+/deep/ .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: $dark !important;
+}
+//
+/deep/ .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: $danger !important;
+}
+
+/deep/ .mat-form-field.mat-form-field-invalid .email {
+  color: $danger !important;
+}
+
+/deep/ .mat-form-field.mat-form-field-invalid .password {
+  color: $danger !important;
+}
+
+//
+///deep/ .cdk-overlay-pane {
+//  @media (max-width: 767px) {
+//    min-width: unset !important;
+//    width: 85% !important;
+//  }
+//}
+
+/deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $primary !important;
+}
+//
+/deep/ .mat-select-arrow-wrapper {
+  background-color: $primary !important;
+}
+//
+/deep/ .mat-input-element:disabled {
+  color: $primary !important;
+}
+//
+/deep/ svg {
+  color: $primary !important;
+}
+
+button {
+  border-radius: 50px;
+  background-color: $primary !important;
+  color: white !important;
+}
+
+/deep/ .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: $primary !important;
+}
+
+header {
+  height: 10%;
+  background-color: $primary;
+  color: white;
+  position: relative;
+  .title {
+    margin: auto;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -15%);
+    font-size: 20px;
+    @media (max-width: 899px) {
+      left: 50%;
+      transform: translate(-50%, -25%);
+    }
+    @media (min-width: 1024px) and (max-width: 1439px) {
+      transform: translate(-25%, -15%);
+    }
+  }
+}
+
+footer {
+  height: 20%;
+  background-color: $dark;
+  //position: absolute;
+  //bottom: 0;
+  color: white;
+  //text-align: center;
+  position: relative;
+  div {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    i {
+      font-size: 13px;
+    }
+  }
+}
+
+.email {
+  color: $primary;
+}
+
+.password {
+  color: $primary;
+}
+
+img {
+  background-blend-mode: $color2;
+  height: 100%;
+  position: absolute;
+  transform: translate(30%);
+  @media (max-width: 1440px) {
+    transform: translate(25%);
+  }
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    transform: translate(-10%, 0%);
+    height: 600px;
+    width: 600px;
+  }
+}
+
+.image {
+  height: 100%;
+  position: relative;
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.content {
+  height: 70%;
+}
+
+.section {
+  position: relative;
+  @media (min-width: 768px) {
+    height: 100%;
+  }
+}
+
+/deep/ .mat-select-value {
+    color: $dark !important;
+}
+
+/deep/ .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: white;
+}
+
+/deep/ .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: white;
+}

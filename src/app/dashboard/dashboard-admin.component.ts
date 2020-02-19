@@ -1,22 +1,26 @@
-import {Component, ViewChild, ElementRef, ViewEncapsulation, AfterViewInit, OnInit, OnDestroy, Injectable} from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { MatSidenavModule } from '@angular/material';
-//import { VERSION } from '@angular/material';
-import { NavItem } from './nav-item';
-import { NavService } from './nav.service';
+import {Component, ElementRef, Injectable, OnInit, ViewChild} from '@angular/core';
+import {Observable} from 'rxjs';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {map} from 'rxjs/operators';
+import {NavService} from './nav.service';
 import {AuthenticationService} from '../services/authentication.service';
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {UserService} from '../services/user.service';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {NavItem} from './nav-item';
+
+// Font awesome imports
+
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard-parent.component.html',
-  styleUrls: ['./dashboard-parent.component.scss']
+  selector: 'app-dashboard-admin',
+  templateUrl: './dashboard-admin.component.html',
+  styleUrls: ['./dashboard-admin.component.scss']
 })
-export class DashboardParentComponent implements OnInit, OnDestroy {
+export class DashboardAdminComponent implements OnInit {
+
+  // faCoffee = faCoffee;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -113,14 +117,14 @@ export class DashboardParentComponent implements OnInit, OnDestroy {
   //version = VERSION;
   navItems: NavItem[] = [
     {
-      displayName: 'Grades',
-      iconName: 'school',
-      route: 'grades',
+      displayName: 'Users',
+      iconName: 'account_circle',
+      route: 'users',
     },
     {
-      displayName: 'Events',
-      iconName: 'event',
-      route: 'events',
+      displayName: 'Roles',
+      iconName: 'supervised_user_circle',
+      route: 'roles',
       /*children: [
         {
           displayName: 'Profits',
@@ -222,7 +226,7 @@ export class DashboardParentComponent implements OnInit, OnDestroy {
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardParentGuard implements CanActivate {
+export class DashboardAdminGuard implements CanActivate {
 
   constructor(private autenticationService: AuthenticationService, public router: Router) {}
 
