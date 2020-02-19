@@ -1,0 +1,56 @@
+<!--<ngx-spinner-->
+  <!--bdColor="rgba(51,51,51,0.8)"-->
+  <!--size="medium"-->
+  <!--color="#fff"-->
+  <!--type="ball-scale-multiple"-->
+<!--&gt;-->
+  <!--&lt;!&ndash;<p style="font-size: 20px; color: white">Loading...</p>&ndash;&gt;-->
+<!--</ngx-spinner>-->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary" routerLink="/dashboard" class="app" (click)="closeMenu(null, drawer)">School Book
+    </mat-toolbar>
+    <!--mat-sidenav #appDrawer mode="over" opened="false"-->
+    <mat-nav-list>
+      <app-menu-list-item *ngFor="let item of navItems" [item]="item" [routerLink]="[item.route]"
+                          (click)="closeMenu(item.displayName, drawer)"></app-menu-list-item>
+    </mat-nav-list>
+    <div class="text-center logout p-1">
+      <button type="submit" mat-raised-button color="primary" class="btn-block"
+              (click)="logout()">Logout
+      </button>
+      <div class="mt-1 copyright">
+        Copyright
+        <i class="material-icons">
+          copyright
+        </i> 2020 Mihael Perić
+      </div>
+    </div>
+  </mat-sidenav>
+  <!--app-top-nav fxHide.xs></app-top-nav-->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        id="menuButton"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span></span>
+      <!--<div class="w-100 text-right">-->
+        <!--<button type="button" mat-raised-button color="primary" class="btn-block subscribePushNotificationButton" [disabled]="sub">-->
+          <!--Push Notification-->
+        <!--</button>-->
+      <!--</div>-->
+    </mat-toolbar>
+    <div class="p-5 dashboard-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
