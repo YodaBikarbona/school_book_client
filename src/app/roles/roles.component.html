@@ -1,0 +1,46 @@
+<div class="roles">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 p-2">
+      <p class="text-center">Roles.</p>
+    </div>
+    <div class="col-md-12 col-sm-12 mt-2 p-2 table" *ngIf="rolesLength > 0">
+      <table mat-table [dataSource]="roles" class="col-md-12 col-sm-12">
+        <!-- Item Column -->
+        <ng-container matColumnDef="created">
+          <th mat-header-cell *matHeaderCellDef class="firstTableRow">Created</th>
+          <td mat-cell *matCellDef="let role"> {{ role.created }} </td>
+          <!--<td mat-footer-cell *matFooterCellDef>Total</td>-->
+        </ng-container>
+
+        <!-- Item Column -->
+        <ng-container matColumnDef="name" class="text-center">
+          <th mat-header-cell *matHeaderCellDef class="text-center">Name</th>
+          <td mat-cell *matCellDef="let role" class="text-center"> {{ role.name }} </td>
+          <!--<td mat-footer-cell *matFooterCellDef class="text-center tableMobile"></td>-->
+        </ng-container>
+
+        <!--Show details table row button-->
+        <ng-container matColumnDef="deleteRole">
+          <th mat-header-cell *matHeaderCellDef class="text-center">...</th>
+          <td mat-cell *matCellDef="let role" class="text-center">
+            <button mat-button matTooltip="Delete role"
+                    (click)="openDialogDeleteRole(role)"><i class="material-icons">delete</i></button>
+          </td>
+          <!--<td mat-footer-cell *matFooterCellDef></td>-->
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="tableHeader"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="data"></tr>
+        <!--<tr mat-footer-row *matFooterRowDef="displayedColumns" class="tableFooter"></tr>-->
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" pageSize="{{ gradesLength }}" (page)="changeOffsetLimit($event)"
+                     length="{{billsOffset}}" showFirstLastButtons></mat-paginator>
+    </div>
+    <div class="col-md-10 col-sm-12">
+    </div>
+    <div class="col-md-2 col-sm-12 p-2 newRole">
+      <button mat-raised-button color="primary" matTooltip="Add a new role" class="w-100"
+                    (click)="openDialogNewRole()"><i class="material-icons">add_circle_outline</i></button>
+    </div>
+  </div>
+</div>

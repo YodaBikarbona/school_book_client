@@ -18,3 +18,11 @@ export class ActivationRequest {
     this.email = email;
   }
 }
+
+export class NewRole {
+  roleName: string;
+
+  constructor(roleName: string) {
+    this.roleName = roleName;
+  }
+}

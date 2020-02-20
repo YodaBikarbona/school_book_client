@@ -46,9 +46,13 @@ import { EventsComponent } from './events/events.component';
 import { AbsencesComponent } from './absences/absences.component';
 import { ProgressComponent } from './progress/progress.component';
 import { DashboardAdminComponent } from './dashboard/dashboard-admin.component';
+import { DialogNewRoleComponent } from './roles/new-role.component';
+import { DialogDeleteRoleComponent } from './roles/delete-role.component';
 
 // Font awesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RolesComponent } from './roles/roles.component';
+
 
 @NgModule({
   declarations: [
@@ -64,6 +68,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AbsencesComponent,
     ProgressComponent,
     DashboardAdminComponent,
+    RolesComponent,
+    DialogNewRoleComponent,
+    DialogDeleteRoleComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +110,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   entryComponents: [
     DialogActivationComponent,
-    DialogGradeComponent
+    DialogGradeComponent,
+    DialogDeleteRoleComponent,
+    DialogNewRoleComponent
   ],
   providers: [NavService, {provide: HTTP_INTERCEPTORS, useClass: JWTHeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]

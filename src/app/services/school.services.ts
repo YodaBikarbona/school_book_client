@@ -4,7 +4,7 @@ import { API_URL } from '../app.constants';
 // import {ApplicationRatingRequest, ChangePassword, ClearNewsRequest, EditProfile, User} from '../model';
 import { Injectable } from '@angular/core';
 import {map} from 'rxjs/operators';
-import {ActivationRequest} from '../model';
+import {ActivationRequest, NewRole} from '../model';
 
 @Injectable({ providedIn: 'root' })
 export class SchoolService {
@@ -28,5 +28,15 @@ export class SchoolService {
   }
   getAllAbsencesNumber(childId: number, schoolSubjectId: number) {
     return this.http.get(`${API_URL}/school_book/child/${childId}/school_subject/${schoolSubjectId}/absences`);
+  }
+  getAllRoles() {
+    return this.http.get(`${API_URL}/school_book/admin/roles`);
+  }
+  deleteRole(roleId: number) {
+    return this.http.delete(`${API_URL}/school_book/admin/roles/role/${roleId}/delete`);
+  }
+  addNewRole(roleName: string) {
+    const request = new NewRole(roleName);
+    return this.http.post(`${API_URL}/school_book/admin/roles/new`, request);
   }
 }

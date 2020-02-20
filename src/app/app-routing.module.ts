@@ -8,6 +8,7 @@ import {EventsComponent} from './events/events.component';
 import {AbsencesComponent} from './absences/absences.component';
 import {ProgressComponent} from './progress/progress.component';
 import {DashboardAdminComponent, DashboardAdminGuard} from './dashboard/dashboard-admin.component';
+import {RolesComponent} from './roles/roles.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,11 @@ const routes: Routes = [
   },
   {
     path: 'adminDashboard', component: DashboardAdminComponent, canActivate: [DashboardAdminGuard],
+    children: [
+      {
+        path: 'roles', component: RolesComponent
+      }
+    ]
   },
   {path: '**', redirectTo: '/login', pathMatch: 'full'}
 ];
