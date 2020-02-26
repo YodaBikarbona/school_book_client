@@ -35,11 +35,9 @@ export class ProgressComponent implements OnInit {
   onChangeChild(event) {
     this.isChildChosen = true;
     this.childId = event.value;
-    console.log(event.value);
   }
 
   onChangeSchoolSubject(event) {
-    console.log(event.value);
     if (event.value === 'null') {
       this.schoolSubjectId = 0;
     }

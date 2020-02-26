@@ -48,24 +48,22 @@ export class GradesComponent implements OnInit {
     this.isSchoolSubjectChosen = true;
     if (event.value !== 'null') {
       this.schoolSubjectId = event.value;
-    }
-    else {
+    } else {
       this.schoolSubjectId = 0;
     }
-    this.schoolService.getAllGrades(this.childId, this.schoolSubjectId).subscribe( (data: any) => {
-      this.grades = data.results;
-      if (this.grades && this.grades.length > 0) {
-        for (let i = 0; i < this.grades.length; i++) {
-          const created = this.grades[i].created.split('T');
-          const date = created[0];
-          const time = created[1].split('Z')[0];
-          this.grades[i].created = date + ' ' + time;
+    this.schoolService.getAllGrades(this.childId, this.schoolSubjectId).subscribe((data: any) => {
+        this.grades = data.results;
+        if (this.grades && this.grades.length > 0) {
+          for (let i = 0; i < this.grades.length; i++) {
+            const created = this.grades[i].created.split('T');
+            const date = created[0];
+            const time = created[1].split('Z')[0];
+            this.grades[i].created = date + ' ' + time;
+          }
+          this.gradesLength = this.grades.length;
+        } else {
+          this.gradesLength = 0;
         }
-        this.gradesLength = this.grades.length;
-      }
-      else {
-        this.gradesLength = 0;
-      }
       }, err => {
 
       }
@@ -78,7 +76,14 @@ export class GradesComponent implements OnInit {
       width: '500px',
       disableClose: true,
       data: {
-        created: newDate, grade: grade.grade, gradeType: grade.grade_type, comment: grade.comment, professor: grade.professor.first_name + ' ' + grade.professor.last_name, student: grade.student.first_name + ' ' + grade.student.last_name, schoolSubject: grade.school_subject.name, schoolClass: grade.school_class.name
+        created: newDate,
+        grade: grade.grade,
+        gradeType: grade.grade_type,
+        comment: grade.comment,
+        professor: grade.professor.first_name + ' ' + grade.professor.last_name,
+        student: grade.student.first_name + ' ' + grade.student.last_name,
+        schoolSubject: grade.school_subject.name,
+        schoolClass: grade.school_class.name
       }
     });
 
@@ -89,7 +94,6 @@ export class GradesComponent implements OnInit {
   changeOffsetLimit(event) {
     this.gradesLimit = event.pageSize;
     this.gradesOffset = event.pageIndex;
-    console.log(this.gradesLimit, this.gradesOffset);
   }
 
   displayedColumns: string[] = ['school_subject', 'grade', 'date', 'comment', 'type', 'showDetails'];

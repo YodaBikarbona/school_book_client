@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SchoolService} from '../services/school.services';
 import {DialogNewRoleComponent} from './new-role.component';
 import {MatDialog} from '@angular/material';
@@ -13,15 +13,18 @@ export class RolesComponent implements OnInit {
 
   roles: any;
   rolesLength = 0;
+  rolesLimit = 5;
+  rolesOffset = 0;
 
-  constructor(private schoolService: SchoolService, private dialog: MatDialog) { }
+  constructor(private schoolService: SchoolService, private dialog: MatDialog) {
+  }
 
   ngOnInit() {
     this.getAllRoles();
   }
 
   getAllRoles() {
-    this.schoolService.getAllRoles().subscribe((data: any) => {
+    this.schoolService.getAllRoles(this.rolesLimit, this.rolesOffset).subscribe((data: any) => {
       this.roles = data.results;
       if (this.roles && this.roles.length > 0) {
         for (let i = 0; i < this.roles.length; i++) {
@@ -30,7 +33,7 @@ export class RolesComponent implements OnInit {
           const time = created[1].split('Z')[0];
           this.roles[i].created = date + ' ' + time;
         }
-        this.rolesLength = this.roles.length;
+        this.rolesLength = this.roles[0].roles_number;
       }
     }, err => {
 
@@ -63,6 +66,12 @@ export class RolesComponent implements OnInit {
         this.getAllRoles();
       }
     });
+  }
+
+  changeOffsetLimit(event) {
+    this.rolesLimit = event.pageSize;
+    this.rolesOffset = event.pageIndex;
+    this.getAllRoles();
   }
 
   displayedColumns: string[] = ['created', 'name', 'deleteRole'];

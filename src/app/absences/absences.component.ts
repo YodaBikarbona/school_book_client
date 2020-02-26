@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
 import {SchoolService} from '../services/school.services';
 
@@ -21,7 +21,8 @@ export class AbsencesComponent implements OnInit {
   justifiedAbsences = 0;
   unjustifiedAbsences = 0;
 
-  constructor(private userService: UserService, private schoolService: SchoolService) { }
+  constructor(private userService: UserService, private schoolService: SchoolService) {
+  }
 
   ngOnInit() {
     this.userService.getChildrenByParentId().subscribe((data: any) => {
@@ -65,13 +66,12 @@ export class AbsencesComponent implements OnInit {
     this.isSchoolSubjectChosen = true;
     if (event.value !== 'null') {
       this.schoolSubjectId = event.value;
-    }
-    else {
+    } else {
       this.schoolSubjectId = 0;
     }
     this.schoolService.getAllAbsences(this.childId, this.schoolSubjectId, this.isJustified).subscribe((data: any) => {
       this.absences = data.results;
-      if (this.absences !== undefined)  {
+      if (this.absences !== undefined) {
         for (let i = 0; i < this.absences.length; i++) {
           const created = this.absences[i].created.split('T');
           const date = created[0];
@@ -94,7 +94,7 @@ export class AbsencesComponent implements OnInit {
     this.isJustified = event.value;
     this.schoolService.getAllAbsences(this.childId, this.schoolSubjectId, this.isJustified).subscribe((data: any) => {
       this.absences = data.results;
-      if (this.absences !== undefined)  {
+      if (this.absences !== undefined) {
         for (let i = 0; i < this.absences.length; i++) {
           const created = this.absences[i].created.split('T');
           const date = created[0];

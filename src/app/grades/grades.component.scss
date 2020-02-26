@@ -1,4 +1,5 @@
 @import "~src/palette";
+
 .grades {
   color: $dark;
 }
@@ -48,7 +49,7 @@
 }
 
 /deep/ .mat-select-value {
-    color: $dark !important;
+  color: $dark !important;
 }
 
 /deep/ .table {
@@ -58,15 +59,15 @@
 }
 
 /deep/ .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
-    color: white;
+  color: white;
 }
 
 /deep/ .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-    color: white;
+  color: white;
 }
 
 /deep/ th.mat-header-cell {
-    text-align: center !important;
+  text-align: center !important;
 }
 
 .firstTableRow {

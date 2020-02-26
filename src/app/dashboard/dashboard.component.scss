@@ -1,4 +1,5 @@
 @import "~src/palette";
+
 .sidenav-container {
   height: 100%;
 }
@@ -53,6 +54,7 @@
 
 .copyright {
   font-size: 12px;
+
   /deep/ .material-icons {
     font-size: 10px !important;
   }

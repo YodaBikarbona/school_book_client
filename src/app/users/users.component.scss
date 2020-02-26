@@ -1,12 +1,7 @@
 @import "~src/palette";
 
-.absences {
+.users {
   color: $dark;
-}
-
-.eventsCard {
-  background-color: $dark;
-  color: white;
 }
 
 /deep/ .mat-form-field.mat-focused .mat-form-field-label {
@@ -41,6 +36,10 @@
   color: $primary !important;
 }
 
+/deep/ .mat-input-element {
+  color: $primary !important;
+}
+
 /deep/ svg {
   color: $primary !important;
 }
@@ -50,7 +49,7 @@
 }
 
 /deep/ .mat-select-value {
-  color: $dark !important;
+  color: $primary !important;
 }
 
 /deep/ .table {
@@ -65,4 +64,36 @@
 
 /deep/ .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
   color: white;
+}
+
+/deep/ th.mat-header-cell {
+  text-align: center !important;
+}
+
+.firstTableRow {
+  text-align: left !important;
+}
+
+/deep/ .tableMobile {
+  @media(max-width: 767px) {
+    display: none;
+  }
+}
+
+.notFoundTitle {
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.notFoundContent {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.clearFilters, .newUser {
+  button {
+    border-radius: 50px;
+    background-color: $primary !important;
+    color: white !important;
+  }
 }

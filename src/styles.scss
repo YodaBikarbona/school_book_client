@@ -1,43 +1,59 @@
 @import "palette";
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
 
-@mixin space ($attribute) {
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@mixin space($attribute) {
   @for $i from 1 to 6 {
     &-#{$i} {
       #{$attribute}: $i * 10px;
     }
   }
 }
+
 .m {
   @include space(margin);
 }
+
 .mb {
   @include space(margin-bottom)
 }
+
 .mt {
   @include space(margin-top)
 }
+
 .mr {
   @include space(margin-right)
 }
+
 .ml {
   @include space(margin-left)
 }
+
 .p {
   @include space(padding);
 }
+
 .pb {
   @include space(padding-bottom)
 }
+
 .pt {
   @include space(padding-top)
 }
+
 .pr {
   @include space(padding-right)
 }
+
 .pl {
   @include space(padding-left)
 }
@@ -57,9 +73,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-center {
   text-align: center;
 }
+
 .text-right {
   text-align: right;
 }
+
 .text-left {
   text-align: left;
 }
@@ -75,7 +93,6 @@ $break-points: (
 );
 
 $colums: 12;
-
 
 
 .row {
@@ -136,7 +153,7 @@ $colums: 12;
 }
 
 .shadow {
-  box-shadow: 0px 10px 20px rgba(128,128,128,0.5);
+  box-shadow: 0px 10px 20px rgba(128, 128, 128, 0.5);
 }
 
 .m-auto {
@@ -178,6 +195,7 @@ $colums: 12;
 body {
   background-color: #F2FBE0;
   color: $dark;
+
   a {
     color: $dark;
   }

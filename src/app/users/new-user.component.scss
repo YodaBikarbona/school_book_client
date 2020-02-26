@@ -4,16 +4,13 @@ button {
   border-radius: 50px;
   background-color: $primary !important;
   color: white !important;
+  @media (max-width: 767px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
-.delete {
-  button {
-    border-radius: 50px;
-    background-color: $danger !important;
-    color: white !important;
-  }
-
-
+.newUserModal {
   /deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
     background-color: $primary !important;
   }
@@ -48,5 +45,28 @@ button {
 
   /deep/ .mat-form-field.mat-form-field-invalid .password {
     color: $danger !important;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: unset;
+    -webkit-text-fill-color: #F2FBE0;
+    -webkit-box-shadow: 0 0 0px 1000px #424242 inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.buttons {
+  @media (max-width: 767px) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 10px !important;
   }
 }

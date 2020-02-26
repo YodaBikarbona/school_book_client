@@ -13,7 +13,8 @@ export interface DialogNewRole {
 })
 export class DialogNewRoleComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DialogNewRoleComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogNewRole, private snackBar: MatSnackBar, private schoolService: SchoolService) { }
+  constructor(public dialogRef: MatDialogRef<DialogNewRoleComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogNewRole, private snackBar: MatSnackBar, private schoolService: SchoolService) {
+  }
 
   ngOnInit() {
   }

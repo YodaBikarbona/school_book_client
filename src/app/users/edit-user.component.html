@@ -1,0 +1,109 @@
+<div mat-dialog-content class="text-center editUserModal">
+  <p>Add new user</p>
+  <div>
+    <mat-form-field class="w-100">
+      <mat-label>First name</mat-label>
+      <input type="text" matInput required name="first_name" [(ngModel)]="data.first_name">
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Last name</mat-label>
+      <input type="text" matInput required name="last_name" [(ngModel)]="data.last_name">
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Role</mat-label>
+      <mat-select (selectionChange)="onChangeRole($event)" [(ngModel)]="data.roleId"
+                  [ngModelOptions]="{standalone: true}" required>
+        <mat-option *ngFor="let role of data.roles" [value]="role.id">
+          <p>{{ role.name }}</p>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-100" *ngIf="!student && data.roleId">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput required name="email" [(ngModel)]="data.email">
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Address</mat-label>
+      <input type="text" matInput required name="address" [(ngModel)]="data.address">
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>City</mat-label>
+      <input type="text" matInput required name="city" [(ngModel)]="data.city">
+    </mat-form-field>
+    <mat-form-field class="w-100" *ngIf="!student && data.roleId">
+      <mat-label>Phone</mat-label>
+      <input type="text" matInput required name="phone" [(ngModel)]="data.phone">
+    </mat-form-field>
+    <mat-form-field class="w-100" *ngIf="student">
+      <mat-label>Mother</mat-label>
+      <mat-select (selectionChange)="onChangeMother($event)" [(ngModel)]="data.parent_mother"
+                  [ngModelOptions]="{standalone: true}"
+                  [required]="chosenParent === false ? false: true">
+        <mat-option *ngFor="let mother of users" [value]="mother.id">
+          <p>{{ mother.first_name }} {{ mother.last_name }} {{ mother.email }}</p>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-100" *ngIf="student">
+      <mat-label>Father</mat-label>
+      <mat-select (selectionChange)="onChangeFather($event)" [(ngModel)]="data.parent_father"
+                  [ngModelOptions]="{standalone: true}"
+                  [required]="chosenParent === false ? false: true">
+        <mat-option *ngFor="let father of users" [value]="father.id">
+          <p>{{ father.first_name }} {{ father.last_name }} {{ father.email }}</p>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Gender</mat-label>
+      <mat-select (selectionChange)="onChangeGender($event)" [(ngModel)]="data.genderId"
+                  [ngModelOptions]="{standalone: true}" required>
+        <mat-option *ngFor="let gender of data.genders" [value]="gender.id">
+          <p>{{ gender.name }}</p>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <input matInput [matDatepicker]="pickerTo" [(ngModel)]="data.birthDateSelect"
+             placeholder="Birth date" disabled (dateChange)="onChangeBirthDate($event)"
+             [ngModelOptions]="{standalone: true}" required>
+      <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #pickerTo disabled="false"></mat-datepicker>
+    </mat-form-field>
+    <div class="w-100 text-left mb-1">
+      <mat-label class="mr-1">Active</mat-label>
+      <mat-checkbox [(ngModel)]="data.is_active" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+    </div>
+    <div class="w-100 text-left mb-1">
+      <mat-label class="mr-1">Deleted</mat-label>
+      <mat-checkbox [(ngModel)]="data.is_deleted" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="w-100 footer">
+  <div class="row w-100">
+    <div class="col-md-6 col-sm-12 pr-1 mt-1 buttons">
+      <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial (click)="onNoClick()">Close
+      </button>
+    </div>
+    <div class="col-md-6 col-sm-12 pl-1 mt-1 buttons">
+      <button (click)="editUser(data)" mat-raised-button color="primary" class="btn-block w-100">Edit</button>
+    </div>
+    <div class="col-md-6 col-sm-12 pr-1 buttons mt-1">
+      <button (click)="activateUser(data)" mat-raised-button color="primary" class="btn-block w-100">Activate</button>
+    </div>
+    <div class="col-md-6 col-sm-12 pl-1 buttons mt-1">
+      <button (click)="deactivateUser(data)" mat-raised-button color="primary" class="btn-block w-100">Deactivate
+      </button>
+    </div>
+    <div class="col-md-12 col-sm-12 pl-1 buttonChangePassword">
+      <button (click)="openDialogChangePassword(data)" mat-raised-button color="primary" class="btn-block w-100">Change
+        password
+      </button>
+    </div>
+    <div class="col-md-12 col-sm-12 pl-1 mb-1 buttonDelete" *ngIf="!data.is_deleted">
+      <button (click)="openDialogDeleteUser(data)" mat-raised-button color="primary" class="btn-block w-100">Delete
+      </button>
+    </div>
+  </div>
+</div>

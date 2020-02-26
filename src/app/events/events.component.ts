@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SchoolService} from '../services/school.services';
 
 @Component({
@@ -10,7 +10,8 @@ export class EventsComponent implements OnInit {
 
   events: any;
 
-  constructor(private schoolService: SchoolService) { }
+  constructor(private schoolService: SchoolService) {
+  }
 
   ngOnInit() {
     this.schoolService.getAllEvents().subscribe((data: any) => {

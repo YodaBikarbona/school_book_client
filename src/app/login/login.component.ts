@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(request).subscribe(
       res => {
         this.spinner.hide();
-        console.log(res);
         if (localStorage.getItem('auth-token')) {
           if (localStorage.getItem('userRole') && localStorage.getItem('userRole') === 'Parent') {
             this.router.navigate(['parentDashboard']);

@@ -13,7 +13,8 @@ export interface DialogDeleteRole {
 })
 export class DialogDeleteRoleComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DialogDeleteRoleComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogDeleteRole, private snackBar: MatSnackBar, private schoolService: SchoolService) { }
+  constructor(public dialogRef: MatDialogRef<DialogDeleteRoleComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogDeleteRole, private snackBar: MatSnackBar, private schoolService: SchoolService) {
+  }
 
   ngOnInit() {
   }

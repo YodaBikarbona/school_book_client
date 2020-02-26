@@ -19,7 +19,8 @@ export interface DialogShowDetailsGrade {
 })
 export class DialogGradeComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DialogGradeComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogShowDetailsGrade) { }
+  constructor(public dialogRef: MatDialogRef<DialogGradeComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogShowDetailsGrade) {
+  }
 
   ngOnInit() {
   }

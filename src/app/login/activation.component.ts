@@ -27,10 +27,8 @@ export class DialogActivationComponent implements OnInit {
 
   activateUser(code: string) {
     this.data.code = code;
-    console.log(this.data);
     this.userService.activateUser(this.data.email, this.data.code).subscribe(
       data => {
-        console.log('An account is activated!')
         this.dialogRef.close({'is_active': true});
       }, err => {
         if (err.error.code === 403) {

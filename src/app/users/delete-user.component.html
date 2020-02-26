@@ -1,0 +1,12 @@
+<div mat-dialog-content class="text-center">
+  <mat-icon>warning</mat-icon>
+  <h5>Are you sure that you want delete this user?</h5>
+  <div class="text-center mt-1 delete">
+    <button type="button" mat-raised-button color="danger" class="btn-block" (click)="deleteUser()">Delete</button>
+  </div>
+  <div class="text-center mt-1">
+    <button type="button" mat-raised-button class="btn-block" cdkFocusInitial
+            (click)="onNoClick()">Close
+    </button>
+  </div>
+</div>
