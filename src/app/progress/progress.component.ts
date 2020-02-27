@@ -22,7 +22,7 @@ export class ProgressComponent implements OnInit {
     this.userService.getChildrenByParentId().subscribe((data: any) => {
       this.children = data.results;
       if (this.children) {
-        this.schoolService.getAllSchoolSubjects().subscribe((data: any) => {
+        this.schoolService.getAllSchoolSubjects(0, 0).subscribe((data: any) => {
           this.schoolSubjects = data.results;
         }, err => {
 

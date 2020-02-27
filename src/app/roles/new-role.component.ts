@@ -23,9 +23,8 @@ export class DialogNewRoleComponent implements OnInit {
     this.dialogRef.close({'added': false});
   }
 
-  addNewRole(roleName) {
-    this.data.roleName = roleName;
-    this.schoolService.addNewRole(this.data.roleName).subscribe((data: any) => {
+  addNewRole(data) {
+    this.schoolService.addNewRole(data.roleName).subscribe((data: any) => {
       this.snackBar.open('Role is successfully added!', null, {duration: 4000, verticalPosition: 'top'});
       this.dialogRef.close({'added': true});
     }, err => {

@@ -123,14 +123,14 @@ export class DashboardAdminComponent implements OnInit {
       ]*/
     },
     {
-      displayName: 'Absences',
-      iconName: 'cancel',
-      route: 'absences',
+      displayName: 'School subjects',
+      iconName: 'menu_book',
+      route: 'schoolSubjects',
     },
     {
-      displayName: 'Progress',
-      iconName: 'equalizer',
-      route: 'progress',
+      displayName: 'School classes',
+      iconName: 'meeting_room',
+      route: 'schoolClasses',
     },
     {
       displayName: 'Options',

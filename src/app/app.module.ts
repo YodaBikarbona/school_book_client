@@ -54,9 +54,20 @@ import {DialogNewUserComponent} from './users/new-user.component';
 import {DialogEditUserComponent} from './users/edit-user.component';
 import {DialogChangePasswordComponent} from './users/change-password.component';
 import {DialogDeleteUserComponent} from './users/delete-user.component';
+import { SchoolSubjectsComponent } from './school-subjects/school-subjects.component';
+import { DialogEditRoleComponent } from './roles/edit-role.component';
+import { DialogNewSchoolSubjectComponent } from './school-subjects/new-school-subject.component';
+import { DialogDeleteSchoolSubjectComponent } from './school-subjects/delete-school-subject.component';
+import { DialogEditSchoolSubjectComponent } from './school-subjects/edit-school-subject.component';
 
 // Font awesome
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { SchoolClassesComponent } from './school-classes/school-classes.component';
+import { NewSchoolClassComponent } from './school-classes/new-school-class.component';
+import { DeleteSchoolClassComponent } from './school-classes/delete-school-class.component';
+import { EditSchoolClassComponent } from './school-classes/edit-school-class.component';
+
+
 
 
 @NgModule({
@@ -81,6 +92,15 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     DialogEditUserComponent,
     DialogChangePasswordComponent,
     DialogDeleteUserComponent,
+    SchoolSubjectsComponent,
+    DialogEditRoleComponent,
+    DialogNewSchoolSubjectComponent,
+    DialogDeleteSchoolSubjectComponent,
+    DialogEditSchoolSubjectComponent,
+    SchoolClassesComponent,
+    NewSchoolClassComponent,
+    DeleteSchoolClassComponent,
+    EditSchoolClassComponent,
   ],
   imports: [
     BrowserModule,
@@ -126,7 +146,11 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     DialogNewUserComponent,
     DialogEditUserComponent,
     DialogChangePasswordComponent,
-    DialogDeleteUserComponent
+    DialogDeleteUserComponent,
+    DialogEditRoleComponent,
+    DialogNewSchoolSubjectComponent,
+    DialogDeleteSchoolSubjectComponent,
+    DialogEditSchoolSubjectComponent
   ],
   providers: [NavService, {provide: HTTP_INTERCEPTORS, useClass: JWTHeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]

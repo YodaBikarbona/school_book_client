@@ -4,15 +4,33 @@ import {API_URL} from '../app.constants';
 // import {ApplicationRatingRequest, ChangePassword, ClearNewsRequest, EditProfile, User} from '../model';
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
-import {ActivationRequest, NewRole} from '../model';
+import {ActivationRequest, EditRole, EditSchoolSubject, NewRole, NewSchoolSubject} from '../model';
 
 @Injectable({providedIn: 'root'})
 export class SchoolService {
   constructor(public http: HttpClient) {
   }
 
-  getAllSchoolSubjects() {
-    return this.http.get(`${API_URL}/school_book/school_subjects`);
+  getAllSchoolSubjects(limit: number, offset: number) {
+    return this.http.get(`${API_URL}/school_book/school_subjects?limit=${limit}&offset=${offset}`);
+  }
+
+  addNewSchoolSubjects(schoolSubjectName: string, isActive: boolean) {
+    const request = new NewSchoolSubject(schoolSubjectName, isActive);
+    return this.http.post(`${API_URL}/school_book/admin/school_subjects/add`, request);
+  }
+
+  editSchoolSubject(id: number, schoolSubjectName: string, isActive: boolean) {
+    const request = new EditSchoolSubject(schoolSubjectName, isActive);
+    return this.http.post(`${API_URL}/school_book/admin/school_subjects/school_subject/${id}/edit`, request);
+  }
+
+  deleteSchoolSubject(schoolSubjectId: number) {
+    return this.http.delete(`${API_URL}/school_book/admin/school_subjects/school_subject/${schoolSubjectId}/delete`);
+  }
+
+  getAllSchoolClasses(limit: number, offset: number) {
+    return this.http.get(`${API_URL}/school_book/school_classes?limit=${limit}&offset=${offset}`);
   }
 
   getAllGrades(childId: number, schoolSubjectId: number) {
@@ -42,6 +60,11 @@ export class SchoolService {
   addNewRole(roleName: string) {
     const request = new NewRole(roleName);
     return this.http.post(`${API_URL}/school_book/admin/roles/new`, request);
+  }
+
+  editRole(id: number, roleName: string) {
+    const request = new EditRole(roleName);
+    return this.http.patch(`${API_URL}/school_book/admin/roles/role/${id}/edit`, request);
   }
 
   getAllGenders() {

@@ -3,6 +3,7 @@ import {SchoolService} from '../services/school.services';
 import {DialogNewRoleComponent} from './new-role.component';
 import {MatDialog} from '@angular/material';
 import {DialogDeleteRoleComponent} from './delete-role.component';
+import {DialogEditRoleComponent} from './edit-role.component';
 
 @Component({
   selector: 'app-roles',
@@ -68,12 +69,26 @@ export class RolesComponent implements OnInit {
     });
   }
 
+  openDialogEditRole(request): void {
+    const dialogRef = this.dialog.open(DialogEditRoleComponent, {
+      width: '300px',
+      disableClose: true,
+      data: {id: request.id, roleName: request.name}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.edited === true) {
+        this.getAllRoles();
+      }
+    });
+  }
+
   changeOffsetLimit(event) {
     this.rolesLimit = event.pageSize;
     this.rolesOffset = event.pageIndex;
     this.getAllRoles();
   }
 
-  displayedColumns: string[] = ['created', 'name', 'deleteRole'];
+  displayedColumns: string[] = ['name', 'deleteRole', 'editRole'];
 
 }

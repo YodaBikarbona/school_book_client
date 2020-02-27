@@ -1,5 +1,5 @@
 <div mat-dialog-content class="text-center">
-  <form (submit)="addNewRole(data)">
+  <form (submit)="editRole(data)">
     <div>
       <mat-form-field class="w-100">
         <mat-label>Role name</mat-label>
@@ -8,7 +8,7 @@
     </div>
     <div class="text-center">
       <button type="submit" [disabled]="data.roleName ? false: true" mat-raised-button color="primary" class="btn-block">
-        Add
+        Edit
       </button>
     </div>
     <div class="text-center mt-1">

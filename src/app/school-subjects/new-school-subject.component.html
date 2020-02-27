@@ -1,0 +1,24 @@
+<div mat-dialog-content class="text-center">
+  <form (submit)="addNewSchoolSubject(data)">
+    <div>
+      <mat-form-field class="w-100">
+        <mat-label>Role name</mat-label>
+        <input type="text" matInput required name="role_name" [(ngModel)]="data.schoolSubjectName">
+      </mat-form-field>
+      <div class="w-100 text-left mb-1">
+        <mat-label class="mr-1">Active</mat-label>
+        <mat-checkbox [(ngModel)]="data.isActive" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" [disabled]="data.schoolSubjectName ? false: true" mat-raised-button color="primary" class="btn-block">
+        Add
+      </button>
+    </div>
+    <div class="text-center mt-1">
+      <button type="button" mat-raised-button class="btn-block" cdkFocusInitial
+              (click)="onNoClick()">Close
+      </button>
+    </div>
+  </form>
+</div>

@@ -27,6 +27,34 @@ export class NewRole {
   }
 }
 
+export class EditRole {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+export class NewSchoolSubject {
+  name: string;
+  is_active: boolean;
+
+  constructor(name: string, is_active: boolean) {
+    this.name = name;
+    this.is_active = is_active;
+  }
+}
+
+export class EditSchoolSubject {
+  name: string;
+  is_active: boolean;
+
+  constructor(name: string, is_active: boolean) {
+    this.name = name;
+    this.is_active = is_active;
+  }
+}
+
 export class NewUser {
   first_name: string;
   last_name: string;
