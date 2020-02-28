@@ -59,13 +59,16 @@ import { DialogEditRoleComponent } from './roles/edit-role.component';
 import { DialogNewSchoolSubjectComponent } from './school-subjects/new-school-subject.component';
 import { DialogDeleteSchoolSubjectComponent } from './school-subjects/delete-school-subject.component';
 import { DialogEditSchoolSubjectComponent } from './school-subjects/edit-school-subject.component';
-
-// Font awesome
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { SchoolClassesComponent } from './school-classes/school-classes.component';
 import { NewSchoolClassComponent } from './school-classes/new-school-class.component';
 import { DeleteSchoolClassComponent } from './school-classes/delete-school-class.component';
 import { EditSchoolClassComponent } from './school-classes/edit-school-class.component';
+import { SchoolClassMembersComponent } from './school-class-members/school-class-members.component';
+import { DialogNewSchoolClassMemberComponent } from './school-class-members/new-school-class-member.component';
+
+// Font awesome
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+
 
 
 
@@ -101,6 +104,8 @@ import { EditSchoolClassComponent } from './school-classes/edit-school-class.com
     NewSchoolClassComponent,
     DeleteSchoolClassComponent,
     EditSchoolClassComponent,
+    SchoolClassMembersComponent,
+    DialogNewSchoolClassMemberComponent,
   ],
   imports: [
     BrowserModule,
@@ -150,7 +155,8 @@ import { EditSchoolClassComponent } from './school-classes/edit-school-class.com
     DialogEditRoleComponent,
     DialogNewSchoolSubjectComponent,
     DialogDeleteSchoolSubjectComponent,
-    DialogEditSchoolSubjectComponent
+    DialogEditSchoolSubjectComponent,
+    DialogNewSchoolClassMemberComponent
   ],
   providers: [NavService, {provide: HTTP_INTERCEPTORS, useClass: JWTHeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]

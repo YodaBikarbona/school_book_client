@@ -133,6 +133,11 @@ export class DashboardAdminComponent implements OnInit {
       route: 'schoolClasses',
     },
     {
+      displayName: 'School class members',
+      iconName: 'meeting_room',
+      route: 'schoolClassMembers'
+    },
+    {
       displayName: 'Options',
       disabled: true,
       iconName: 'settings',

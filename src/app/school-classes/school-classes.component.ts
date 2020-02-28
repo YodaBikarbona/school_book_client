@@ -32,6 +32,8 @@ export class SchoolClassesComponent implements OnInit {
           this.schoolClasses[i].created = date + ' ' + time;
         }
         this.schoolClassesLength = this.schoolClasses[0].school_classes_number;
+      } else {
+        this.schoolClassesLength = 0;
       }
     }, err => {
 

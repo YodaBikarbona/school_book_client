@@ -34,6 +34,8 @@ export class SchoolSubjectsComponent implements OnInit {
           this.schoolSubjects[i].created = date + ' ' + time;
         }
         this.schoolSubjectsLength = this.schoolSubjects[0].school_subjects_number;
+      } else {
+        this.schoolSubjectsLength = 0;
       }
     }, err => {
 
@@ -88,5 +90,5 @@ export class SchoolSubjectsComponent implements OnInit {
     this.getAllSchoolSubjects();
   }
 
-  displayedColumns: string[] = ['name', 'isActive', 'deleteSchoolSubject', 'editSchoolSubject'];
+  displayedColumns: string[] = ['name', 'isActive', 'editSchoolSubject'];
 }

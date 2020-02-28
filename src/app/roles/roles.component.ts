@@ -35,6 +35,8 @@ export class RolesComponent implements OnInit {
           this.roles[i].created = date + ' ' + time;
         }
         this.rolesLength = this.roles[0].roles_number;
+      } else {
+        this.rolesLength = 0;
       }
     }, err => {
 

@@ -12,6 +12,7 @@ import {RolesComponent} from './roles/roles.component';
 import {UsersComponent} from './users/users.component';
 import {SchoolSubjectsComponent} from './school-subjects/school-subjects.component';
 import {SchoolClassesComponent} from './school-classes/school-classes.component';
+import {SchoolClassMembersComponent} from './school-class-members/school-class-members.component';
 
 const routes: Routes = [
   {
@@ -71,6 +72,9 @@ const routes: Routes = [
       },
       {
         path: 'schoolClasses', component: SchoolClassesComponent
+      },
+      {
+        path: 'schoolClassMembers', component: SchoolClassMembersComponent
       }
     ]
   },
