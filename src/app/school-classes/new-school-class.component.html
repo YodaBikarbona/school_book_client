@@ -1,3 +1,28 @@
-<p>
-  new-school-class works!
-</p>
+<div mat-dialog-content class="text-center">
+  <form (submit)="addNewSchoolClass(data)">
+    <div>
+      <mat-form-field class="w-100">
+        <mat-label>School class name</mat-label>
+        <input type="text" matInput required name="school_class_name" [(ngModel)]="data.schoolClassName">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>School year</mat-label>
+        <input type="text" matInput required name="school_year" [(ngModel)]="data.schoolYear">
+      </mat-form-field>
+      <div class="w-100 text-left mb-1">
+        <mat-label class="mr-1">Active</mat-label>
+        <mat-checkbox [(ngModel)]="data.isActive" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" [disabled]="data.schoolClassName && data.schoolYear ? false: true" mat-raised-button color="primary" class="btn-block">
+        Add
+      </button>
+    </div>
+    <div class="text-center mt-1">
+      <button type="button" mat-raised-button class="btn-block" cdkFocusInitial
+              (click)="onNoClick()">Close
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {SchoolService} from '../services/school.services';
 import {MatDialog} from '@angular/material';
+import {DialogDeleteSchoolClassComponent} from './delete-school-class.component';
+import {DialogNewSchoolClassComponent} from './new-school-class.component';
+import {DialogEditSchoolClassComponent} from './edit-school-class.component';
 
 @Component({
   selector: 'app-school-classes',
@@ -40,5 +43,53 @@ export class SchoolClassesComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['name', 'school_year', 'isActive', 'editSchoolSubject'];
+  openDialogDeleteSchoolClass(request): void {
+    const dialogRef = this.dialog.open(DialogDeleteSchoolClassComponent, {
+      width: '300px',
+      disableClose: true,
+      data: {schoolClassId: request.id}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.deleted === true) {
+        this.getAllSchoolClasses();
+      }
+    });
+  }
+
+  openDialogEditSchoolClass(request): void {
+    const dialogRef = this.dialog.open(DialogEditSchoolClassComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {schoolClassId: request.id, schoolClassName: request.name, isActive: request.is_active}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.edited === true) {
+        this.getAllSchoolClasses();
+      }
+    });
+  }
+
+  openDialogNewSchoolClass(request): void {
+    const dialogRef = this.dialog.open(DialogNewSchoolClassComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {schoolClassName: '', schoolYear: '', isActive: false}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.added === true) {
+        this.getAllSchoolClasses();
+      }
+    });
+  }
+
+  changeOffsetLimit(event) {
+    this.schoolClassesLimit = event.pageSize;
+    this.schoolClassesOffset = event.pageIndex;
+    this.getAllSchoolClasses();
+  }
+
+  displayedColumns: string[] = ['name', 'school_year', 'isActive', 'deleteSchoolSubject', 'editSchoolSubject'];
 }

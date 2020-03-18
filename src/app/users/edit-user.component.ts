@@ -69,7 +69,7 @@ export class DialogEditUserComponent implements OnInit {
   }
 
   editUser(data) {
-    this.userService.editUser(data.id, data.first_name, data.last_name, data.email, data.address, data.city, data.phone, data.is_active, data.is_deleted, data.birth_date, data.genderId, data.roleId, data.parent_mother, data.parent_father).subscribe((data: any) => {
+    this.userService.editUser(data.id, data.first_name, data.last_name, data.email, data.address, data.city, data.phone, data.is_active, data.birth_date, data.genderId, data.roleId, data.parent_mother, data.parent_father).subscribe((data: any) => {
       this.snackBar.open('User is successfully edited!', null, {duration: 4000, verticalPosition: 'top'});
       this.dialogRef.close({'edited': true});
     }, err => {
@@ -106,6 +106,7 @@ export class DialogEditUserComponent implements OnInit {
       this.parent = false;
       this.student = true;
       this.data.email = '';
+      this.data.phone = '';
     } else {
       this.parent = false;
       this.users = [];
@@ -131,7 +132,7 @@ export class DialogEditUserComponent implements OnInit {
   }
 
   get_all_users() {
-    this.userService.getAllUsers(-1, this.usersOffset, 1, 0, this.parentRoleId, 0, '', '').subscribe((data: any) => {
+    this.userService.getAllUsers(-1, this.usersOffset, 1, this.parentRoleId, 0, '', '').subscribe((data: any) => {
       this.users = data.results;
     }, err => {
     });

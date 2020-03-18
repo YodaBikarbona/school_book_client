@@ -95,14 +95,13 @@ export class EditUser {
   city: string;
   phone: string;
   is_active: boolean;
-  is_deleted: boolean;
   birth_date: string;
   gender_id: number;
   role_id: number;
   parent_mother: number;
   parent_father: number;
 
-  constructor(first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, is_deleted: boolean, birth_date: string, gender_id: number, role_id: number, parent_mother: number, parent_father: number) {
+  constructor(first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, birth_date: string, gender_id: number, role_id: number, parent_mother: number, parent_father: number) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.email = email;
@@ -110,7 +109,6 @@ export class EditUser {
     this.city = city;
     this.phone = phone;
     this.is_active = is_active;
-    this.is_deleted = is_deleted;
     this.birth_date = birth_date;
     this.gender_id = gender_id;
     this.role_id = role_id;
@@ -134,3 +132,50 @@ export class AdminChangeUserPassword {
     this.password = password;
   }
 }
+
+export class NewSchoolClass {
+  name: string;
+  school_year: string;
+  is_active: boolean;
+
+  constructor(name: string, school_year: string, is_active: boolean) {
+    this.name = name;
+    this.school_year = school_year;
+    this.is_active = is_active;
+  }
+}
+
+export class EditSchoolClass {
+  name: string;
+  is_active: boolean;
+
+  constructor(name: string, is_active: boolean) {
+    this.name = name;
+    this.is_active = is_active;
+  }
+}
+
+export class AddNewMemberToSchoolClass {
+  is_active: boolean;
+  role_name: string;
+  school_class_id: number;
+  user_id: number
+
+  constructor(is_active: boolean, role_name: string, school_class_id: number, user_id: number) {
+    this.is_active = is_active;
+    this.role_name = role_name;
+    this.school_class_id = school_class_id;
+    this.user_id = user_id;
+  }
+}
+
+export class ActivateOrDeactivateMember {
+  is_active: boolean;
+  role_name: string;
+
+  constructor(is_active: boolean, role_name: string) {
+    this.is_active = is_active;
+    this.role_name = role_name;
+  }
+}
+

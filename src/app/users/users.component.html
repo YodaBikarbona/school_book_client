@@ -21,22 +21,6 @@
     </div>
     <div class="col-md-12 col-sm-12 pl-2 pr-2">
       <mat-form-field class="w-100">
-        <mat-label>Deleted</mat-label>
-        <mat-select (selectionChange)="onChangeDeleteStatus($event)" [(ngModel)]="isDelete">
-          <mat-option value=-1>
-            <p>Both</p>
-          </mat-option>
-          <mat-option value=1>
-            <p>Yes</p>
-          </mat-option>
-          <mat-option value=0>
-            <p>No</p>
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col-md-12 col-sm-12 pl-2 pr-2">
-      <mat-form-field class="w-100">
         <mat-label>Gender</mat-label>
         <mat-select (selectionChange)="onChangeGender($event)" [(ngModel)]="genderId">
           <mat-option value='null'>
@@ -117,20 +101,6 @@
                           [disabled]="true">
             </mat-checkbox>
             <mat-checkbox *ngIf="!user.is_active"
-                          [checked]="false"
-                          [disabled]="true">
-            </mat-checkbox>
-          </td>
-        </ng-container>
-
-        <ng-container matColumnDef="isDeleted" class="tableMobile">
-          <th mat-header-cell *matHeaderCellDef class="text-center tableMobile">Deleted</th>
-          <td mat-cell *matCellDef="let user" class="text-center tableMobile">
-            <mat-checkbox *ngIf="user.is_delete"
-                          [checked]="true"
-                          [disabled]="true">
-            </mat-checkbox>
-            <mat-checkbox *ngIf="!user.is_delete"
                           [checked]="false"
                           [disabled]="true">
             </mat-checkbox>

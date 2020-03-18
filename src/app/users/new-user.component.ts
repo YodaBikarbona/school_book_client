@@ -11,7 +11,6 @@ export interface DialogNewUser {
   city: string;
   phone: string;
   is_active: boolean;
-  is_deleted: boolean;
   birth_date: string;
   genderId: number;
   roleId: number;
@@ -105,7 +104,7 @@ export class DialogNewUserComponent implements OnInit {
   }
 
   get_all_users() {
-    this.userService.getAllUsers(-1, this.usersOffset, 1, 0, this.parentRoleId, 0, '', '').subscribe((data: any) => {
+    this.userService.getAllUsers(-1, this.usersOffset, 1, this.parentRoleId, 0, '', '').subscribe((data: any) => {
       this.users = data.results;
     }, err => {
     });

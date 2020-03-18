@@ -4,7 +4,17 @@ import {API_URL} from '../app.constants';
 // import {ApplicationRatingRequest, ChangePassword, ClearNewsRequest, EditProfile, User} from '../model';
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
-import {ActivationRequest, EditRole, EditSchoolSubject, NewRole, NewSchoolSubject} from '../model';
+import {
+  ActivateOrDeactivateMember,
+  ActivationRequest,
+  AddNewMemberToSchoolClass,
+  EditRole,
+  EditSchoolClass,
+  EditSchoolSubject,
+  NewRole,
+  NewSchoolClass,
+  NewSchoolSubject
+} from '../model';
 
 @Injectable({providedIn: 'root'})
 export class SchoolService {
@@ -27,6 +37,20 @@ export class SchoolService {
 
   deleteSchoolSubject(schoolSubjectId: number) {
     return this.http.delete(`${API_URL}/school_book/admin/school_subjects/school_subject/${schoolSubjectId}/delete`);
+  }
+
+  deleteSchoolClass(schoolClassId: number) {
+    return this.http.delete(`${API_URL}/school_book/admin/school_classes/school_class/${schoolClassId}/delete`);
+  }
+
+  addNewSchoolClass(schoolClassName: string, schoolYear: string, isActive: boolean) {
+    const request = new NewSchoolClass(schoolClassName, schoolYear, isActive);
+    return this.http.post(`${API_URL}/school_book/admin/school_classes/add`, request);
+  }
+
+  editSchoolClass(schoolClassId: number, schoolClassName: string, isActive: boolean) {
+    const request = new EditSchoolClass(schoolClassName, isActive);
+    return this.http.put(`${API_URL}/school_book/admin/school_classes/school_class/${schoolClassId}/edit`, request);
   }
 
   getAllSchoolClasses(limit: number, offset: number) {
@@ -73,5 +97,15 @@ export class SchoolService {
 
   getAllGenders() {
     return this.http.get(`${API_URL}/school_book/admin/genders`);
+  }
+
+  addNewMemberToSchoolClass(isActive: boolean, roleName: string, schoolClassId: number, userId: number) {
+    const request = new AddNewMemberToSchoolClass(isActive, roleName, schoolClassId, userId);
+    return this.http.post(`${API_URL}/school_book/admin/school_classes/school_class/members/add`, request);
+  }
+
+  activateOrDeactivateMember(memberId: number, isActive: boolean, roleName: string) {
+    const request = new ActivateOrDeactivateMember(isActive, roleName);
+    return this.http.patch(`${API_URL}/school_book/admin/school_classes/school_class/members/member/${memberId}/activate_or_deactivate`, request);
   }
 }

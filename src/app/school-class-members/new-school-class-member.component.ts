@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef, MatSnackBar} from '@angular/material';
 import {DialogNewRole} from '../roles/new-role.component';
 import {SchoolService} from '../services/school.services';
 import {UserService} from '../services/user.service';
@@ -21,7 +21,7 @@ export class DialogNewSchoolClassMemberComponent implements OnInit {
   users = [];
   allUsers: any;
 
-  constructor(public dialogRef: MatDialogRef<DialogNewSchoolClassMemberComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogAddNewMember, private schoolService: SchoolService, private userService: UserService) { }
+  constructor(public dialogRef: MatDialogRef<DialogNewSchoolClassMemberComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogAddNewMember, private schoolService: SchoolService, private userService: UserService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.get_all_users();
@@ -54,7 +54,7 @@ export class DialogNewSchoolClassMemberComponent implements OnInit {
   }
 
   get_all_users() {
-    this.userService.getAllUsers(0, 0, 1, 0, 0, 0, '', '').subscribe((data: any) => {
+    this.userService.getAllUsers(0, 0, 1, 0, 0, '', '').subscribe((data: any) => {
       this.allUsers = data.results;
       for (let i = 0; i < this.allUsers.length; i++) {
         console.log(this.allUsers[i].role.name)
@@ -66,5 +66,15 @@ export class DialogNewSchoolClassMemberComponent implements OnInit {
     }, err => {
     });
 
+  }
+
+  addMember() {
+    this.schoolService.addNewMemberToSchoolClass(this.data.isActive, this.data.roleName, this.data.schoolClassId, this.data.userId).subscribe((data: any) => {
+      this.snackBar.open('Member is successfully added to this school class!', null, {duration: 4000, verticalPosition: 'top'});
+      this.dialogRef.close({'added': true});
+    }, err => {
+      this.snackBar.open('Member is not added to this school class!', null, {duration: 4000, verticalPosition: 'top'});
+      this.dialogRef.close({'added': false});
+    });
   }
 }

@@ -21,8 +21,9 @@ export class AuthenticationService {
     return this.http.post(`${API_URL}/school_book/login`, request)
       .pipe(
         map((res: any) => {
-          sec_token = res.token;
-          role = res.role.name;
+          console.log(res);
+          sec_token = res.result.token;
+          role = res.result.role.name;
         }),
         map(token => this.resloveAuthentication(sec_token)),
         map(userRole => this.resloveAuthenticationRole(role)),

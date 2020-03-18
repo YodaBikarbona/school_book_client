@@ -90,5 +90,5 @@ export class SchoolSubjectsComponent implements OnInit {
     this.getAllSchoolSubjects();
   }
 
-  displayedColumns: string[] = ['name', 'isActive', 'editSchoolSubject'];
+  displayedColumns: string[] = ['name', 'isActive', 'deleteSchoolSubject', 'editSchoolSubject'];
 }

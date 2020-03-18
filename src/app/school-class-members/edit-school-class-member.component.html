@@ -1,0 +1,36 @@
+<div mat-dialog-content class="text-center editMemberModal">
+  <p>Add new member</p>
+  <div>
+    <mat-form-field class="w-100">
+      <mat-label>Role</mat-label>
+      <input type="text" matInput required name="role_name" [(ngModel)]="data.roleName" disabled>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Member first name</mat-label>
+      <input type="text" matInput required name="member" [(ngModel)]="data.userFirstName" disabled>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Member last name</mat-label>
+      <input type="text" matInput required name="member" [(ngModel)]="data.userLastName" disabled>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Member email</mat-label>
+      <input type="text" matInput required name="member" [(ngModel)]="data.userEmail" disabled>
+    </mat-form-field>
+    <div class="w-100 text-left mb-1">
+      <mat-label class="mr-1">Active</mat-label>
+      <mat-checkbox [(ngModel)]="data.isActive" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="w-100 footer">
+  <div class="row w-100">
+    <div class="col-md-6 col-sm-12 pr-1 mt-1 buttons">
+      <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial (click)="onNoClick()">Close
+      </button>
+    </div>
+    <div class="col-md-6 col-sm-12 pl-1 mt-1 buttons">
+      <button (click)="activateOrDeactivate()" mat-raised-button color="primary" class="btn-block w-100">Edit</button>
+    </div>
+  </div>
+</div>

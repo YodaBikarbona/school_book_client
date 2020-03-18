@@ -9,6 +9,8 @@ import {MatDialog} from '@angular/material';
 import {DialogEditUserComponent} from './edit-user.component';
 import {Router} from '@angular/router';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {promise} from 'selenium-webdriver';
+import filter = promise.filter;
 
 @Component({
   selector: 'app-users',
@@ -21,7 +23,6 @@ export class UsersComponent implements OnInit, OnDestroy {
   roles: any;
   users: any;
   isActive = -1;
-  isDelete = -1;
   genderId = 0;
   roleId = 0;
   usersLimit = 5;
@@ -48,7 +49,7 @@ export class UsersComponent implements OnInit, OnDestroy {
 
     });
 
-    let userList = (searchValues: string) => this.userService.getAllUsers(this.usersLimit, this.usersOffset, this.isActive, this.isDelete, this.roleId, this.genderId, this.birthDate, searchValues);
+    let userList = (searchValues: string) => this.userService.getAllUsers(this.usersLimit, this.usersOffset, this.isActive, this.roleId, this.genderId, this.birthDate, searchValues);
 
     userList('').subscribe((data: any) => {
       this.users = data.results;
@@ -78,7 +79,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   get_all_users() {
-    this.userService.getAllUsers(this.usersLimit, this.usersOffset, this.isActive, this.isDelete, this.roleId, this.genderId, this.birthDate, this.searchField.value).subscribe((data: any) => {
+    this.userService.getAllUsers(this.usersLimit, this.usersOffset, this.isActive, this.roleId, this.genderId, this.birthDate, this.searchField.value).subscribe((data: any) => {
       this.users = data.results;
       if (this.users && this.users.length > 0) {
         this.usersLength = this.users[0].users_number;
@@ -92,11 +93,6 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   onChangeActivity(event) {
     this.isActive = event.value;
-    this.get_all_users();
-  }
-
-  onChangeDeleteStatus(event) {
-    this.isDelete = event.value;
     this.get_all_users();
   }
 
@@ -122,12 +118,10 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.roleId = undefined;
     this.genderId = undefined;
     this.isActive = undefined;
-    this.isDelete = undefined;
     this.birthDate = '';
     this.birthDateSelect = '';
     this.search = '';
     this.isActive = -1;
-    this.isDelete = -1;
     this.roleId = 0;
     this.genderId = 0;
     this.get_all_users();
@@ -190,7 +184,6 @@ export class UsersComponent implements OnInit, OnDestroy {
         city: data.city,
         phone: data.phone,
         is_active: data.is_active,
-        is_deleted: data.is_delete,
         birth_date: data.birth_date,
         genderId: data.gender.id,
         roleId: data.role.id,
@@ -218,6 +211,6 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.router.navigate(['login']);
   }
 
-  displayedColumns: string[] = ['first_name', 'last_name', 'email', 'role', 'gender', 'isActive', 'isDeleted', 'showDetails'];
+  displayedColumns: string[] = ['first_name', 'last_name', 'email', 'role', 'gender', 'isActive', 'showDetails'];
 
 }

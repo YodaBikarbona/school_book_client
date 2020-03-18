@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SchoolService} from '../services/school.services';
 import {MatDialog} from '@angular/material';
 import {DialogNewSchoolClassMemberComponent} from './new-school-class-member.component';
+import {DialogEditSchoolClassMemberComponent} from './edit-school-class-member.component';
 
 @Component({
   selector: 'app-school-class-members',
@@ -18,7 +19,8 @@ export class SchoolClassMembersComponent implements OnInit {
   usersOffset = 0;
   usersLength = 0;
 
-  constructor(private schoolService: SchoolService, private dialog: MatDialog) { }
+  constructor(private schoolService: SchoolService, private dialog: MatDialog) {
+  }
 
   ngOnInit() {
     this.getAllSchoolClasses();
@@ -27,7 +29,7 @@ export class SchoolClassMembersComponent implements OnInit {
   getAllSchoolClasses() {
     this.schoolService.getAllSchoolClasses(0, 0).subscribe((data: any) => {
       this.schoolClasses = data.results;
-      console.log(this.schoolClasses)
+      console.log(this.schoolClasses);
       if (this.schoolClasses && this.schoolClasses.length > 0) {
         for (let i = 0; i < this.schoolClasses.length; i++) {
           const created = this.schoolClasses[i].created.split('T');
@@ -44,7 +46,7 @@ export class SchoolClassMembersComponent implements OnInit {
   getAllSchoolClassMembers() {
     this.schoolService.getAllSchoolClassMembers(this.schoolClassId, this.usersLimit, this.usersOffset).subscribe((data: any) => {
       this.users = data.results;
-      console.log(this.users)
+      console.log(this.users);
       if (this.users && this.users.length > 0) {
         this.usersLength = this.users[0].users_number;
       } else {
@@ -76,6 +78,28 @@ export class SchoolClassMembersComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.added === true) {
+        this.getAllSchoolClassMembers();
+      }
+    });
+  }
+
+  openDialogEditMember(data): void {
+    console.log(data);
+    const dialogRef = this.dialog.open(DialogEditSchoolClassMemberComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        memberId: data.id,
+        isActive: data.is_active,
+        roleName: data.professor ? data.professor.role.name : data.student.role.name,
+        userFirstName: data.professor ? data.professor.first_name : data.student.first_name,
+        userLastName: data.professor ? data.professor.last_name : data.student.last_name,
+        userEmail: data.professor ? data.professor.email : data.student.email
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.edited === true) {
         this.getAllSchoolClassMembers();
       }
     });

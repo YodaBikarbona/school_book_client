@@ -60,14 +60,15 @@ import { DialogNewSchoolSubjectComponent } from './school-subjects/new-school-su
 import { DialogDeleteSchoolSubjectComponent } from './school-subjects/delete-school-subject.component';
 import { DialogEditSchoolSubjectComponent } from './school-subjects/edit-school-subject.component';
 import { SchoolClassesComponent } from './school-classes/school-classes.component';
-import { NewSchoolClassComponent } from './school-classes/new-school-class.component';
-import { DeleteSchoolClassComponent } from './school-classes/delete-school-class.component';
-import { EditSchoolClassComponent } from './school-classes/edit-school-class.component';
+import { DialogNewSchoolClassComponent } from './school-classes/new-school-class.component';
+import { DialogDeleteSchoolClassComponent } from './school-classes/delete-school-class.component';
+import { DialogEditSchoolClassComponent } from './school-classes/edit-school-class.component';
 import { SchoolClassMembersComponent } from './school-class-members/school-class-members.component';
 import { DialogNewSchoolClassMemberComponent } from './school-class-members/new-school-class-member.component';
 
 // Font awesome
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { DialogEditSchoolClassMemberComponent } from './school-class-members/edit-school-class-member.component';
 
 
 
@@ -101,11 +102,12 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     DialogDeleteSchoolSubjectComponent,
     DialogEditSchoolSubjectComponent,
     SchoolClassesComponent,
-    NewSchoolClassComponent,
-    DeleteSchoolClassComponent,
-    EditSchoolClassComponent,
+    DialogNewSchoolClassComponent,
+    DialogDeleteSchoolClassComponent,
+    DialogEditSchoolClassComponent,
     SchoolClassMembersComponent,
     DialogNewSchoolClassMemberComponent,
+    DialogEditSchoolClassMemberComponent,
   ],
   imports: [
     BrowserModule,
@@ -156,7 +158,11 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     DialogNewSchoolSubjectComponent,
     DialogDeleteSchoolSubjectComponent,
     DialogEditSchoolSubjectComponent,
-    DialogNewSchoolClassMemberComponent
+    DialogNewSchoolClassMemberComponent,
+    DialogDeleteSchoolClassComponent,
+    DialogNewSchoolClassComponent,
+    DialogEditSchoolClassComponent,
+    DialogEditSchoolClassMemberComponent
   ],
   providers: [NavService, {provide: HTTP_INTERCEPTORS, useClass: JWTHeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]
