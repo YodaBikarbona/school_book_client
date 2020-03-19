@@ -69,6 +69,11 @@ import { DialogNewSchoolClassMemberComponent } from './school-class-members/new-
 // Font awesome
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { DialogEditSchoolClassMemberComponent } from './school-class-members/edit-school-class-member.component';
+import { SchoolClassSubjectsComponent } from './school-class-subjects/school-class-subjects.component';
+import { DialogDeleteSchoolClassMemberComponent } from './school-class-members/delete-school-class-member.component';
+import { DialogNewSchoolClassSubjectComponent } from './school-class-subjects/new-school-class-subject.component';
+import { DialogEditSchoolClassSubjectComponent } from './school-class-subjects/edit-school-class-subject.component';
+import { DialogDeleteSchoolClassSubjectComponent } from './school-class-subjects/delete-school-class-subject.component';
 
 
 
@@ -108,6 +113,11 @@ import { DialogEditSchoolClassMemberComponent } from './school-class-members/edi
     SchoolClassMembersComponent,
     DialogNewSchoolClassMemberComponent,
     DialogEditSchoolClassMemberComponent,
+    SchoolClassSubjectsComponent,
+    DialogDeleteSchoolClassMemberComponent,
+    DialogNewSchoolClassSubjectComponent,
+    DialogEditSchoolClassSubjectComponent,
+    DialogDeleteSchoolClassSubjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -162,7 +172,11 @@ import { DialogEditSchoolClassMemberComponent } from './school-class-members/edi
     DialogDeleteSchoolClassComponent,
     DialogNewSchoolClassComponent,
     DialogEditSchoolClassComponent,
-    DialogEditSchoolClassMemberComponent
+    DialogEditSchoolClassMemberComponent,
+    DialogDeleteSchoolClassMemberComponent,
+    DialogDeleteSchoolClassSubjectComponent,
+    DialogEditSchoolClassSubjectComponent,
+    DialogNewSchoolClassSubjectComponent
   ],
   providers: [NavService, {provide: HTTP_INTERCEPTORS, useClass: JWTHeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]

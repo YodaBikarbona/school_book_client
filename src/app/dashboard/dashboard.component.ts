@@ -28,43 +28,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.spinner.show();
-    const role = this.autenticationService.role;
-    if (role === 'admin') {
-      this.navItems.push(
-        {
-          displayName: 'Admin',
-          iconName: 'accessibility',
-          route: '',
-          children: [
-            {
-              displayName: 'Categories',
-              iconName: '',
-              route: 'categories',
-            },
-            {
-              displayName: 'Sub categories',
-              iconName: '',
-              route: 'sub_categories',
-            },
-            {
-              displayName: 'Currencies',
-              iconName: '',
-              route: 'currencies',
-            },
-            {
-              displayName: 'Countries',
-              iconName: '',
-              route: 'countries',
-            },
-            {
-              displayName: 'Cities',
-              iconName: '',
-              route: 'cities',
-            },
-          ]
-        }
-      );
-    }
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
@@ -101,38 +64,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
       route: 'profile',
     },
     {
-      displayName: 'Bills',
-      iconName: 'list_alt',
-      route: 'bills',
-      /*children: [
-        {
-          displayName: 'Profits',
-          iconName: 'attach_money',
-          route: 'profits',
-        },
-        {
-          displayName: 'Costs',
-          iconName: 'money_off',
-          route: 'costs',
-        },
-      ]*/
-    },
-    {
-      displayName: 'Graph',
-      iconName: 'equalizer',
-      route: 'graph',
-    },
-    {
       displayName: 'Options',
       disabled: true,
       iconName: 'settings',
       route: 'settings',
     },
-    {
-      displayName: 'Application',
-      iconName: 'apps',
-      route: 'application',
-    }
   ];
 
   ngAfterViewInit() {

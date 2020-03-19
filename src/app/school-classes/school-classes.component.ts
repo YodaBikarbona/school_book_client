@@ -26,7 +26,6 @@ export class SchoolClassesComponent implements OnInit {
   getAllSchoolClasses() {
     this.schoolService.getAllSchoolClasses(this.schoolClassesLimit, this.schoolClassesOffset).subscribe((data: any) => {
       this.schoolClasses = data.results;
-      console.log(this.schoolClasses)
       if (this.schoolClasses && this.schoolClasses.length > 0) {
         for (let i = 0; i < this.schoolClasses.length; i++) {
           const created = this.schoolClasses[i].created.split('T');

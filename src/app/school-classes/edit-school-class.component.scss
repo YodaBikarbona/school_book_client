@@ -6,53 +6,55 @@ button {
   color: white !important;
 }
 
-/deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
-  background-color: $primary !important;
-}
+.editSchoolClassModal {
+  /deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: $primary !important;
+  }
 
-/deep/ .mat-select-arrow-wrapper {
-  background-color: $primary !important;
-}
+  /deep/ .mat-select-arrow-wrapper {
+    background-color: $primary !important;
+  }
 
-/deep/ .mat-input-element:disabled {
-  color: $primary !important;
-}
+  /deep/ .mat-input-element:disabled {
+    color: $primary !important;
+  }
 
-/deep/ svg {
-  color: $primary !important;
-}
+  /deep/ svg {
+    color: $primary !important;
+  }
 
-/deep/ .mat-form-field.mat-focused .mat-form-field-label {
-  color: white !important;
-}
+  /deep/ .mat-form-field.mat-focused .mat-form-field-label {
+    color: white !important;
+  }
 
-/deep/ .mat-form-field-appearance-legacy .mat-form-field-label {
-  color: white !important;
-}
+  /deep/ .mat-form-field-appearance-legacy .mat-form-field-label {
+    color: white !important;
+  }
 
-/deep/ .mat-form-field.mat-form-field-invalid .mat-form-field-label {
-  color: white !important;
-}
+  /deep/ .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: white !important;
+  }
 
-/deep/ .mat-form-field.mat-form-field-invalid .email {
-  color: $danger !important;
-}
+  /deep/ .mat-form-field.mat-form-field-invalid .email {
+    color: $danger !important;
+  }
 
-/deep/ .mat-form-field.mat-form-field-invalid .password {
-  color: $danger !important;
-}
+  /deep/ .mat-form-field.mat-form-field-invalid .password {
+    color: $danger !important;
+  }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  border: unset;
-  -webkit-text-fill-color: #F2FBE0;
-  -webkit-box-shadow: 0 0 0px 1000px #424242 inset;
-  transition: background-color 5000s ease-in-out 0s;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: unset;
+    -webkit-text-fill-color: #F2FBE0;
+    -webkit-box-shadow: 0 0 0px 1000px #424242 inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
 }

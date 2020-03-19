@@ -3,6 +3,7 @@ import {SchoolService} from '../services/school.services';
 import {MatDialog} from '@angular/material';
 import {DialogNewSchoolClassMemberComponent} from './new-school-class-member.component';
 import {DialogEditSchoolClassMemberComponent} from './edit-school-class-member.component';
+import {DialogDeleteSchoolClassMemberComponent} from './delete-school-class-member.component';
 
 @Component({
   selector: 'app-school-class-members',
@@ -29,7 +30,6 @@ export class SchoolClassMembersComponent implements OnInit {
   getAllSchoolClasses() {
     this.schoolService.getAllSchoolClasses(0, 0).subscribe((data: any) => {
       this.schoolClasses = data.results;
-      console.log(this.schoolClasses);
       if (this.schoolClasses && this.schoolClasses.length > 0) {
         for (let i = 0; i < this.schoolClasses.length; i++) {
           const created = this.schoolClasses[i].created.split('T');
@@ -46,7 +46,6 @@ export class SchoolClassMembersComponent implements OnInit {
   getAllSchoolClassMembers() {
     this.schoolService.getAllSchoolClassMembers(this.schoolClassId, this.usersLimit, this.usersOffset).subscribe((data: any) => {
       this.users = data.results;
-      console.log(this.users);
       if (this.users && this.users.length > 0) {
         this.usersLength = this.users[0].users_number;
       } else {
@@ -84,7 +83,6 @@ export class SchoolClassMembersComponent implements OnInit {
   }
 
   openDialogEditMember(data): void {
-    console.log(data);
     const dialogRef = this.dialog.open(DialogEditSchoolClassMemberComponent, {
       width: '600px',
       disableClose: true,
@@ -105,6 +103,23 @@ export class SchoolClassMembersComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['first_name', 'last_name', 'email', 'role', 'gender', 'isActive', 'showDetails'];
+  openDialogDeleteMember(data): void {
+    const dialogRef = this.dialog.open(DialogDeleteSchoolClassMemberComponent, {
+      width: '300px',
+      disableClose: true,
+      data: {
+        memberId: data.id,
+        roleName: data.professor ? data.professor.role.name : data.student.role.name,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.deleted === true) {
+        this.getAllSchoolClassMembers();
+      }
+    });
+  }
+
+  displayedColumns: string[] = ['first_name', 'last_name', 'email', 'role', 'gender', 'isActive', 'deleteMember', 'showDetails'];
 
 }

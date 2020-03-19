@@ -32,44 +32,6 @@ export class DashboardAdminComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-
-    const role = this.autenticationService.role;
-    if (role === 'admin') {
-      this.navItems.push(
-        {
-          displayName: 'Admin',
-          iconName: 'accessibility',
-          route: '',
-          children: [
-            {
-              displayName: 'Categories',
-              iconName: '',
-              route: 'categories',
-            },
-            {
-              displayName: 'Sub categories',
-              iconName: '',
-              route: 'sub_categories',
-            },
-            {
-              displayName: 'Currencies',
-              iconName: '',
-              route: 'currencies',
-            },
-            {
-              displayName: 'Countries',
-              iconName: '',
-              route: 'countries',
-            },
-            {
-              displayName: 'Cities',
-              iconName: '',
-              route: 'cities',
-            },
-          ]
-        }
-      );
-    }
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
@@ -109,18 +71,6 @@ export class DashboardAdminComponent implements OnInit {
       displayName: 'Roles',
       iconName: 'supervised_user_circle',
       route: 'roles',
-      /*children: [
-        {
-          displayName: 'Profits',
-          iconName: 'attach_money',
-          route: 'profits',
-        },
-        {
-          displayName: 'Costs',
-          iconName: 'money_off',
-          route: 'costs',
-        },
-      ]*/
     },
     {
       displayName: 'School subjects',
@@ -138,10 +88,9 @@ export class DashboardAdminComponent implements OnInit {
       route: 'schoolClassMembers'
     },
     {
-      displayName: 'Options',
-      disabled: true,
-      iconName: 'settings',
-      route: 'settings',
+      displayName: 'School class subjects',
+      iconName: 'meeting_room',
+      route: 'schoolClassSubjects'
     },
   ];
 

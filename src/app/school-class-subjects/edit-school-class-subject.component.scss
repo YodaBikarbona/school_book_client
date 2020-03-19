@@ -4,9 +4,13 @@ button {
   border-radius: 50px;
   background-color: $primary !important;
   color: white !important;
+  @media (max-width: 767px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
-.editSchoolSubjectModal {
+.editSchoolClassSubjectModal {
   /deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
     background-color: $primary !important;
   }
@@ -58,3 +62,37 @@ button {
     transition: background-color 5000s ease-in-out 0s;
   }
 }
+
+.buttons {
+  @media (max-width: 767px) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+.buttonDelete {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 10px;
+
+  button {
+    background-color: $danger !important;
+  }
+}
+
+.buttonChangePassword {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 10px;
+}
+
+.footer {
+  @media (max-width: 767px) {
+    height: 200px;
+    overflow-y: scroll;
+  }
+}
+
+
+

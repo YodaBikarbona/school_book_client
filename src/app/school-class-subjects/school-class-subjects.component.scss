@@ -1,0 +1,99 @@
+@import "~src/palette";
+
+.schoolClassSubjects {
+  color: $dark;
+}
+
+/deep/ .mat-form-field.mat-focused .mat-form-field-label {
+  color: $dark !important;
+}
+
+/deep/ .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: $dark !important;
+}
+
+/deep/ .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: $danger !important;
+}
+
+/deep/ .mat-form-field.mat-form-field-invalid .email {
+  color: $danger !important;
+}
+
+/deep/ .mat-form-field.mat-form-field-invalid .password {
+  color: $danger !important;
+}
+
+/deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $primary !important;
+}
+
+/deep/ .mat-select-arrow-wrapper {
+  background-color: $primary !important;
+}
+
+/deep/ .mat-input-element:disabled {
+  color: $primary !important;
+}
+
+/deep/ .mat-input-element {
+  color: $primary !important;
+}
+
+/deep/ svg {
+  color: $primary !important;
+}
+
+/deep/ .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: $primary !important;
+}
+
+/deep/ .mat-select-value {
+  color: $primary !important;
+}
+
+/deep/ .table {
+  .mat-select-value {
+    color: white !important;
+  }
+}
+
+/deep/ .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: white;
+}
+
+/deep/ .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: white;
+}
+
+/deep/ th.mat-header-cell {
+  text-align: center !important;
+}
+
+.firstTableRow {
+  text-align: left !important;
+}
+
+/deep/ .tableMobile {
+  @media(max-width: 767px) {
+    display: none;
+  }
+}
+
+.notFoundTitle {
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.notFoundContent {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.clearFilters, .newUser {
+  button {
+    border-radius: 50px;
+    background-color: $primary !important;
+    color: white !important;
+  }
+}

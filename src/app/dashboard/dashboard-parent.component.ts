@@ -28,43 +28,6 @@ export class DashboardParentComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.spinner.show();
-    const role = this.autenticationService.role;
-    if (role === 'admin') {
-      this.navItems.push(
-        {
-          displayName: 'Admin',
-          iconName: 'accessibility',
-          route: '',
-          children: [
-            {
-              displayName: 'Categories',
-              iconName: '',
-              route: 'categories',
-            },
-            {
-              displayName: 'Sub categories',
-              iconName: '',
-              route: 'sub_categories',
-            },
-            {
-              displayName: 'Currencies',
-              iconName: '',
-              route: 'currencies',
-            },
-            {
-              displayName: 'Countries',
-              iconName: '',
-              route: 'countries',
-            },
-            {
-              displayName: 'Cities',
-              iconName: '',
-              route: 'cities',
-            },
-          ]
-        }
-      );
-    }
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
@@ -104,18 +67,6 @@ export class DashboardParentComponent implements OnInit, OnDestroy {
       displayName: 'Events',
       iconName: 'event',
       route: 'events',
-      /*children: [
-        {
-          displayName: 'Profits',
-          iconName: 'attach_money',
-          route: 'profits',
-        },
-        {
-          displayName: 'Costs',
-          iconName: 'money_off',
-          route: 'costs',
-        },
-      ]*/
     },
     {
       displayName: 'Absences',

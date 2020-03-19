@@ -1,21 +1,21 @@
-<div mat-dialog-content class="text-center editMemberModal">
-  <p>Edit member</p>
+<div mat-dialog-content class="text-center editSchoolClassSubjectModal">
+  <p>Add new member</p>
   <div>
     <mat-form-field class="w-100">
-      <mat-label>Role</mat-label>
-      <input type="text" matInput required name="role_name" [(ngModel)]="data.roleName" disabled>
+      <mat-label>School subject name</mat-label>
+      <input type="text" matInput required name="school_subject_name" [(ngModel)]="data.subjectName" disabled>
     </mat-form-field>
     <mat-form-field class="w-100">
-      <mat-label>Member first name</mat-label>
-      <input type="text" matInput required name="member_first_name" [(ngModel)]="data.userFirstName" disabled>
+      <mat-label>Professor first name</mat-label>
+      <input type="text" matInput required name="professor_first_name" [(ngModel)]="data.professorFirstName" disabled>
     </mat-form-field>
     <mat-form-field class="w-100">
-      <mat-label>Member last name</mat-label>
-      <input type="text" matInput required name="member_last_name" [(ngModel)]="data.userLastName" disabled>
+      <mat-label>Professor last name</mat-label>
+      <input type="text" matInput required name="professor_last_name" [(ngModel)]="data.professorLastName" disabled>
     </mat-form-field>
     <mat-form-field class="w-100">
-      <mat-label>Member email</mat-label>
-      <input type="text" matInput required name="member_email" [(ngModel)]="data.userEmail" disabled>
+      <mat-label>Professor email</mat-label>
+      <input type="text" matInput required name="professor_email" [(ngModel)]="data.professorEmail" disabled>
     </mat-form-field>
     <div class="w-100 text-left mb-1">
       <mat-label class="mr-1">Active</mat-label>

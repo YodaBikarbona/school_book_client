@@ -57,7 +57,6 @@ export class DialogNewSchoolClassMemberComponent implements OnInit {
     this.userService.getAllUsers(0, 0, 1, 0, 0, '', '').subscribe((data: any) => {
       this.allUsers = data.results;
       for (let i = 0; i < this.allUsers.length; i++) {
-        console.log(this.allUsers[i].role.name)
           if (this.allUsers[i].role.name === 'Student' || this.allUsers[i].role.name === 'Professor') {
             this.users.push(this.allUsers[i]);
           }

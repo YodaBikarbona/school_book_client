@@ -13,6 +13,7 @@ import {UsersComponent} from './users/users.component';
 import {SchoolSubjectsComponent} from './school-subjects/school-subjects.component';
 import {SchoolClassesComponent} from './school-classes/school-classes.component';
 import {SchoolClassMembersComponent} from './school-class-members/school-class-members.component';
+import {SchoolClassSubjectsComponent} from './school-class-subjects/school-class-subjects.component';
 
 const routes: Routes = [
   {
@@ -75,6 +76,9 @@ const routes: Routes = [
       },
       {
         path: 'schoolClassMembers', component: SchoolClassMembersComponent
+      },
+      {
+        path: 'schoolClassSubjects', component: SchoolClassSubjectsComponent
       }
     ]
   },

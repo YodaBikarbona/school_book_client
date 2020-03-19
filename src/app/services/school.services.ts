@@ -5,9 +5,9 @@ import {API_URL} from '../app.constants';
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {
-  ActivateOrDeactivateMember,
+  ActivateOrDeactivateMember, ActivateOrDeactivateSchoolClassSubject,
   ActivationRequest,
-  AddNewMemberToSchoolClass,
+  AddNewMemberToSchoolClass, AddNewSchoolSubjectToSchoolClass,
   EditRole,
   EditSchoolClass,
   EditSchoolSubject,
@@ -107,5 +107,27 @@ export class SchoolService {
   activateOrDeactivateMember(memberId: number, isActive: boolean, roleName: string) {
     const request = new ActivateOrDeactivateMember(isActive, roleName);
     return this.http.patch(`${API_URL}/school_book/admin/school_classes/school_class/members/member/${memberId}/activate_or_deactivate`, request);
+  }
+
+  deleteMember(memberId: number, roleName: string) {
+    return this.http.delete(`${API_URL}/school_book/admin/school_classes/school_class/role_name/${roleName}/members/member/${memberId}/delete`);
+  }
+
+  getAllSchoolClassSubjects(schoolClassId: number, limit: number, offset: number) {
+    return this.http.get(`${API_URL}/school_book/school_classes/school_class/${schoolClassId}/school_subjects?limit=${limit}&offset=${offset}`);
+  }
+
+  deleteSchoolClassSubject(schoolClassSubjectId: number) {
+    return this.http.delete(`${API_URL}/school_book/admin/school_class_subjects/school_class_subject/${schoolClassSubjectId}/delete`);
+  }
+
+  activateOrDeactivateSchoolClassSubject(schoolClassSubjectId: number, isActive: boolean) {
+    const request = new ActivateOrDeactivateSchoolClassSubject(isActive);
+    return this.http.patch(`${API_URL}/school_book/admin/school_class_subjects/school_class_subject/${schoolClassSubjectId}/activate_or_deactivate`, request);
+  }
+
+  addNewSchoolSubjectToSchoolClass(isActive: boolean, userId: number, schoolSubjectId: number, schoolClassId: number) {
+    const request = new AddNewSchoolSubjectToSchoolClass(isActive, userId, schoolSubjectId, schoolClassId);
+    return this.http.post(`${API_URL}/school_book/admin/school_class_subjects/school_class_subject/add`, request);
   }
 }

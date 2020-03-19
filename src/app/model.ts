@@ -179,3 +179,25 @@ export class ActivateOrDeactivateMember {
   }
 }
 
+export class ActivateOrDeactivateSchoolClassSubject {
+  is_active: boolean;
+
+  constructor(is_active: boolean) {
+    this.is_active = is_active;
+  }
+}
+
+export class AddNewSchoolSubjectToSchoolClass {
+  is_active: boolean;
+  user_id: number;
+  school_subject_id: number;
+  school_class_id: number;
+
+
+  constructor(is_active: boolean, user_id: number, school_subject_id: number, school_class_id: number) {
+    this.is_active = is_active;
+    this.user_id = user_id;
+    this.school_subject_id = school_subject_id;
+    this.school_class_id = school_class_id;
+  }
+}

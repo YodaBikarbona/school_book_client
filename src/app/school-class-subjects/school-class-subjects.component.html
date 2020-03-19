@@ -1,0 +1,75 @@
+<div class="schoolClassSubjects">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 p-2">
+      <h3>Filter by</h3>
+    </div>
+    <div class="col-md-12 col-sm-12 pl-2 pr-2">
+      <mat-form-field class="w-100">
+        <mat-label>School class</mat-label>
+        <mat-select (selectionChange)="onChangeSchoolClass($event)" [(ngModel)]="schoolClassId">
+          <mat-option *ngFor="let schoolClass of schoolClasses" [value]="schoolClass.id">
+            <p>{{ schoolClass.name }} {{ schoolClass.school_year }}</p>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 p-2 text-center" *ngIf="schoolSubjectsLength === 0 && schoolClassChosen">
+      <p class="notFoundTitle">OOPS!</p>
+      <p class="notFoundContent">ERROR 404: School subjects not found!</p>
+    </div>
+    <div class="col-md-12 col-sm-12 mt-2 p-2 table" *ngIf="schoolSubjectsLength > 0">
+      <table mat-table [dataSource]="schoolSubjects" class="col-md-12 col-sm-12">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef class="firstTableRow">Name</th>
+          <td mat-cell *matCellDef="let schoolSubject"> {{ schoolSubject.school_subject.name }} </td>
+        </ng-container>
+        <ng-container matColumnDef="professor" class="text-center tableMobile">
+          <th mat-header-cell *matHeaderCellDef class="text-center tableMobile">Professor</th>
+          <td mat-cell *matCellDef="let schoolSubject" class="text-center tableMobile"> {{ schoolSubject.professor.first_name }} {{ schoolSubject.professor.last_name }} </td>
+        </ng-container>
+        <ng-container matColumnDef="email" class="text-center tableMobile">
+          <th mat-header-cell *matHeaderCellDef class="text-center tableMobile">Email</th>
+          <td mat-cell *matCellDef="let schoolSubject" class="text-center tableMobile"> {{ schoolSubject.professor.email }} </td>
+        </ng-container>
+        <ng-container matColumnDef="isActive">
+          <th mat-header-cell *matHeaderCellDef class="text-center">Active</th>
+          <td mat-cell *matCellDef="let schoolSubject" class="text-center">
+            <mat-checkbox *ngIf="schoolSubject.is_active"
+                          [checked]="true"
+                          [disabled]="true">
+            </mat-checkbox>
+            <mat-checkbox *ngIf="!schoolSubject.is_active"
+                          [checked]="false"
+                          [disabled]="true">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="deleteSubject">
+          <th mat-header-cell *matHeaderCellDef class="text-center">...</th>
+          <td mat-cell *matCellDef="let schoolSubject" class="text-center">
+            <button mat-button matTooltip="Delete a member"
+                    (click)="openDialogDeleteSubject(schoolSubject)"><i class="material-icons">delete</i></button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="showDetails">
+          <th mat-header-cell *matHeaderCellDef class="text-center">...</th>
+          <td mat-cell *matCellDef="let schoolSubject" class="text-center">
+            <button mat-button matTooltip="Show details"
+                    (click)="openDialogEditSubject(schoolSubject)"><i class="material-icons">open_in_new</i></button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="tableHeader"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="data"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" pageSize="{{ schoolSubjectsLimit }}"
+                     (page)="changeOffsetLimit($event)"
+                     length="{{ schoolSubjectsLength }}" showFirstLastButtons></mat-paginator>
+    </div>
+    <div class="col-md-10 col-sm-12">
+    </div>
+    <div class="col-md-2 col-sm-12 p-2 newUser" *ngIf="schoolClassChosen">
+      <button mat-raised-button color="primary" matTooltip="Add a new school subject" class="w-100"
+              (click)="openDialogAddSubject()"><i class="material-icons">add_circle_outline</i></button>
+    </div>
+  </div>
+</div>
