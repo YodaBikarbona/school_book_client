@@ -3,7 +3,6 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {MatSidenavModule} from '@angular/material';
-//import { VERSION } from '@angular/material';
 import {NavItem} from './nav-item';
 import {NavService} from './nav.service';
 import {AuthenticationService} from '../services/authentication.service';
@@ -56,7 +55,6 @@ export class DashboardParentComponent implements OnInit, OnDestroy {
   }
 
   @ViewChild('appDrawer') appDrawer: ElementRef;
-  //version = VERSION;
   navItems: NavItem[] = [
     {
       displayName: 'Grades',
@@ -72,17 +70,6 @@ export class DashboardParentComponent implements OnInit, OnDestroy {
       displayName: 'Absences',
       iconName: 'cancel',
       route: 'absences',
-    },
-    {
-      displayName: 'Progress',
-      iconName: 'equalizer',
-      route: 'progress',
-    },
-    {
-      displayName: 'Options',
-      disabled: true,
-      iconName: 'settings',
-      route: 'settings',
     },
   ];
 

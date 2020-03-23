@@ -6,7 +6,6 @@ import {DashboardParentComponent, DashboardParentGuard} from './dashboard/dashbo
 import {GradesComponent} from './grades/grades.component';
 import {EventsComponent} from './events/events.component';
 import {AbsencesComponent} from './absences/absences.component';
-import {ProgressComponent} from './progress/progress.component';
 import {DashboardAdminComponent, DashboardAdminGuard} from './dashboard/dashboard-admin.component';
 import {RolesComponent} from './roles/roles.component';
 import {UsersComponent} from './users/users.component';
@@ -21,26 +20,6 @@ const routes: Routes = [
   },
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [DashboardGuard],
-    // children: [
-    //   {path: '', component: DashboardComponent},
-    //   // {path: 'profile', component: DashboardComponent, resolve: {user: UserResolver, countries: CountryResolver}},
-    //   {path: 'profile'},
-    //   {path: 'bills',
-    //     /*children: [
-    //       {path: "profits", component: BillsComponent},
-    //       {path: "costs", component: BillsComponent}
-    //       ]*/
-    //   },
-    //   //{path: "profits", component: BillsComponent},
-    //   //{path: "costs", component: BillsComponent},
-    //   {path: 'graph'},
-    //   {path: 'settings'},
-    //   {path: 'application',
-    //   children: [
-    //     {path: 'bugs'},
-    //     {path: 'suggestions'},
-    //     {path: 'info'}
-    //   ]}]
   },
   {
     path: 'parentDashboard', component: DashboardParentComponent, canActivate: [DashboardParentGuard],
@@ -54,9 +33,6 @@ const routes: Routes = [
       {
         path: 'absences', component: AbsencesComponent
       },
-      {
-        path: 'progress', component: ProgressComponent
-      }
     ]
   },
   {

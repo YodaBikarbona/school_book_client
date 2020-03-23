@@ -11,8 +11,6 @@ import {NavItem} from './nav-item';
 
 // Font awesome imports
 
-import {faCoffee} from '@fortawesome/free-solid-svg-icons';
-
 @Component({
   selector: 'app-dashboard-admin',
   templateUrl: './dashboard-admin.component.html',
@@ -20,7 +18,6 @@ import {faCoffee} from '@fortawesome/free-solid-svg-icons';
 })
 export class DashboardAdminComponent implements OnInit {
 
-  // faCoffee = faCoffee;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -60,7 +57,6 @@ export class DashboardAdminComponent implements OnInit {
   }
 
   @ViewChild('appDrawer') appDrawer: ElementRef;
-  //version = VERSION;
   navItems: NavItem[] = [
     {
       displayName: 'Users',

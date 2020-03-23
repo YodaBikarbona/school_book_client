@@ -44,7 +44,6 @@ import {DialogGradeComponent} from './grades/grade.component';
 import {NgxMatDatetimePickerModule, NgxMatTimepickerModule} from 'ngx-mat-datetime-picker';
 import {EventsComponent} from './events/events.component';
 import {AbsencesComponent} from './absences/absences.component';
-import {ProgressComponent} from './progress/progress.component';
 import {DashboardAdminComponent} from './dashboard/dashboard-admin.component';
 import {DialogNewRoleComponent} from './roles/new-role.component';
 import {DialogDeleteRoleComponent} from './roles/delete-role.component';
@@ -91,7 +90,6 @@ import { DialogDeleteSchoolClassSubjectComponent } from './school-class-subjects
     DialogGradeComponent,
     EventsComponent,
     AbsencesComponent,
-    ProgressComponent,
     DashboardAdminComponent,
     RolesComponent,
     DialogNewRoleComponent,

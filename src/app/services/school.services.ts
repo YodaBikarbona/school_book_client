@@ -1,7 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {API_URL} from '../app.constants';
-// import {ApplicationRatingRequest, ChangePassword, ClearNewsRequest, EditProfile, User} from '../model';
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {
@@ -57,24 +56,28 @@ export class SchoolService {
     return this.http.get(`${API_URL}/school_book/school_classes?limit=${limit}&offset=${offset}`);
   }
 
+  getAllSchoolClassesByStudentId(limit: number, offset: number, studentId: number) {
+    return this.http.get(`${API_URL}/school_book/school_classes/${studentId}?limit=${limit}&offset=${offset}`);
+  }
+
   getAllSchoolClassMembers(schoolClassId: number, limit: number, offset: number) {
     return this.http.get(`${API_URL}/school_book/school_classes/school_class/${schoolClassId}/members?limit=${limit}&offset=${offset}`);
   }
 
-  getAllGrades(childId: number, schoolSubjectId: number) {
-    return this.http.get(`${API_URL}/school_book/child/${childId}/school_subject/${schoolSubjectId}/grades`);
+  getAllGrades(schoolClassId: number, childId: number, schoolSubjectId: number) {
+    return this.http.get(`${API_URL}/school_book/school_class/${schoolClassId}/child/${childId}/school_subject/${schoolSubjectId}/grades`);
   }
 
   getAllEvents() {
     return this.http.get(`${API_URL}/school_book/parent/events`);
   }
 
-  getAllAbsences(childId: number, schoolSubjectId: number, isJustified: string) {
-    return this.http.get(`${API_URL}/school_book/child/${childId}/school_subject/${schoolSubjectId}/isJustified/${isJustified}/absences`);
+  getAllAbsences(schoolClassId: number, childId: number, schoolSubjectId: number, isJustified: string) {
+    return this.http.get(`${API_URL}/school_book/school_class/${schoolClassId}/child/${childId}/school_subject/${schoolSubjectId}/isJustified/${isJustified}/absences`);
   }
 
-  getAllAbsencesNumber(childId: number, schoolSubjectId: number) {
-    return this.http.get(`${API_URL}/school_book/child/${childId}/school_subject/${schoolSubjectId}/absences`);
+  getAllAbsencesNumber(schoolClassId: number, childId: number, schoolSubjectId: number) {
+    return this.http.get(`${API_URL}/school_book/school_class/${schoolClassId}/child/${childId}/school_subject/${schoolSubjectId}/absences`);
   }
 
   getAllRoles(limit: number, offset: number) {

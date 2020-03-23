@@ -9,6 +9,7 @@ import {SchoolService} from '../services/school.services';
 export class EventsComponent implements OnInit {
 
   events: any;
+  eventsLength = 0;
 
   constructor(private schoolService: SchoolService) {
   }
@@ -27,6 +28,7 @@ export class EventsComponent implements OnInit {
           const eTime = eventDate[1].split('Z')[0];
           this.events[i].date = eDate + ' ' + eTime;
         }
+        this.eventsLength = this.events.length;
       }
     }, err => {
 

@@ -13,11 +13,14 @@ export class GradesComponent implements OnInit {
 
   children: any;
   schoolSubjects: any;
+  schoolClasses: any;
   grades: any;
   isChildChosen = false;
-  isSchoolSubjectChosen = false;
+  isSchoolClassChosen = false;
   childId: number;
   schoolSubjectId: number;
+  schoolClassId: number;
+  isSchoolSubjectChosen = false;
   gradesLimit = 0;
   gradesOffset = 0;
   gradesLength = 0;
@@ -28,13 +31,6 @@ export class GradesComponent implements OnInit {
   ngOnInit() {
     this.userService.getChildrenByParentId().subscribe((data: any) => {
       this.children = data.results;
-      if (this.children) {
-        this.schoolService.getAllSchoolSubjects(0, 0).subscribe((data: any) => {
-          this.schoolSubjects = data.results;
-        }, err => {
-
-        });
-      }
     }, err => {
     });
   }
@@ -42,6 +38,21 @@ export class GradesComponent implements OnInit {
   onChangeChild(event) {
     this.isChildChosen = true;
     this.childId = event.value;
+    this.schoolService.getAllSchoolClassesByStudentId(0, 0, this.childId).subscribe((data: any) => {
+      this.schoolClasses = data.results;
+    });
+    this.schoolClassId = undefined;
+  }
+
+  onChangeSchoolClass(event) {
+    this.isSchoolClassChosen = true;
+    this.schoolClassId = event.value;
+    this.schoolService.getAllSchoolClassSubjects(this.schoolClassId, 0, 0).subscribe((data: any) => {
+      this.schoolSubjects = data.results;
+    }, err => {
+
+    });
+    this.getAllGrades();
   }
 
   onChangeSchoolSubject(event) {
@@ -51,7 +62,11 @@ export class GradesComponent implements OnInit {
     } else {
       this.schoolSubjectId = 0;
     }
-    this.schoolService.getAllGrades(this.childId, this.schoolSubjectId).subscribe((data: any) => {
+    this.getAllGrades();
+  }
+
+  getAllGrades() {
+    this.schoolService.getAllGrades(this.schoolClassId, this.childId, this.schoolSubjectId).subscribe((data: any) => {
         this.grades = data.results;
         if (this.grades && this.grades.length > 0) {
           for (let i = 0; i < this.grades.length; i++) {

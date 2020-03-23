@@ -1,9 +1,10 @@
 <div class="events">
   <div class="row">
-    <div class="col-md-12 col-sm-12 p-2">
-      <p class="text-center">School events.</p>
+    <div class="col-md-12 col-sm-12 p-2 text-center" *ngIf="eventsLength === 0">
+      <p class="notFoundTitle">OOPS!</p>
+      <p class="notFoundContent">ERROR 404: Events not found!</p>
     </div>
-    <div class="col-md-12 col-sm-12 p-2">
+    <div class="col-md-12 col-sm-12 p-2" *ngIf="eventsLength > 0">
       <div *ngFor="let e of events">
         <div class="p-1 mb-1 eventsCard">
           <div class="row">
