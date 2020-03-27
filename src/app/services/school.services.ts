@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {
   ActivateOrDeactivateMember, ActivateOrDeactivateSchoolClassSubject,
-  ActivationRequest,
+  ActivationRequest, AddNewGrade,
   AddNewMemberToSchoolClass, AddNewSchoolSubjectToSchoolClass,
   EditRole,
   EditSchoolClass,
@@ -132,5 +132,18 @@ export class SchoolService {
   addNewSchoolSubjectToSchoolClass(isActive: boolean, userId: number, schoolSubjectId: number, schoolClassId: number) {
     const request = new AddNewSchoolSubjectToSchoolClass(isActive, userId, schoolSubjectId, schoolClassId);
     return this.http.post(`${API_URL}/school_book/admin/school_class_subjects/school_class_subject/add`, request);
+  }
+
+  getSchoolClassesByProfessor() {
+    return this.http.get(`${API_URL}/school_book/professors/professor/school_classes`);
+  }
+
+  getSchoolClassInformation(schoolClassId: number) {
+    return this.http.get(`${API_URL}/school_book/school_classes/${schoolClassId}/information`);
+  }
+
+  addNewGrade(grade: number, gradeType: string, comment: string, userId: number, schoolSubjectId: number, schoolClassId: number) {
+    const request = new AddNewGrade(grade, gradeType, comment, userId, schoolSubjectId, schoolClassId);
+    return this.http.post(`${API_URL}/school_book/school_classes/new_grade`, request);
   }
 }

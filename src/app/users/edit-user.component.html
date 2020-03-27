@@ -70,6 +70,10 @@
       <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
       <mat-datepicker touchUi #pickerTo disabled="false"></mat-datepicker>
     </mat-form-field>
+    <div class="w-100 text-left mb-1" *ngIf="data.roleId">
+      <mat-label class="mr-1">Newsletter</mat-label>
+      <mat-checkbox [(ngModel)]="data.newsletter" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+    </div>
     <div class="w-100 text-left mb-1">
       <mat-label class="mr-1">Active</mat-label>
       <mat-checkbox [(ngModel)]="data.is_active" [ngModelOptions]="{standalone: true}"></mat-checkbox>

@@ -1,0 +1,104 @@
+<div mat-dialog-content class="text-center dialog newGradeModal">
+  <div class="row">
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-2 col-sm-12 text-center p-1">
+      <button type="button" mat-raised-button cdkFocusInitial (click)="choseGrade(1)"
+              [ngClass]="chosenGrade === 1 ? 'btn-block active' : 'btn-block'">
+        1
+      </button>
+    </div>
+    <div class="col-md-2 col-sm-12 text-center p-1">
+      <button type="button" mat-raised-button cdkFocusInitial (click)="choseGrade(2)"
+              [ngClass]="chosenGrade === 2 ? 'btn-block active' : 'btn-block'">
+        2
+      </button>
+    </div>
+    <div class="col-md-2 col-sm-12 text-center p-1">
+      <button type="button" mat-raised-button cdkFocusInitial (click)="choseGrade(3)"
+              [ngClass]="chosenGrade === 3 ? 'btn-block active' : 'btn-block'">
+        3
+      </button>
+    </div>
+    <div class="col-md-2 col-sm-12 text-center p-1">
+      <button type="button" mat-raised-button cdkFocusInitial (click)="choseGrade(4)"
+              [ngClass]="chosenGrade === 4 ? 'btn-block active' : 'btn-block'">
+        4
+      </button>
+    </div>
+    <div class="col-md-2 col-sm-12 text-center p-1">
+      <button type="button" mat-raised-button cdkFocusInitial (click)="choseGrade(5)"
+              [ngClass]="chosenGrade === 5 ? 'btn-block active' : 'btn-block'">
+        5
+      </button>
+    </div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-10 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Grade type</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.gradeType">
+      </mat-form-field>
+    </div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-10 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Comment</mat-label>
+        <textarea type="text" matInput required [(ngModel)]="data.comment"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+  <!--<mat-form-field class="w-100">-->
+  <!--<mat-label>Created</mat-label>-->
+  <!--<input matInput [ngxMatDatetimePicker]="picker" placeholder="Created date" [(ngModel)]="data.created" disabled>-->
+  <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+  <!--<ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>-->
+  <!--</mat-form-field>-->
+  <!--<mat-form-field class="w-100">-->
+  <!--<mat-label>Grade</mat-label>-->
+  <!--<input type="text" matInput required [(ngModel)]="data.grade" disabled>-->
+  <!--</mat-form-field>-->
+  <!--<mat-form-field class="w-100">-->
+  <!--<mat-label>Grade type</mat-label>-->
+  <!--<input type="text" matInput required [(ngModel)]="data.gradeType" disabled>-->
+  <!--</mat-form-field>-->
+  <!--<mat-form-field class="w-100">-->
+  <!--<mat-label>Comment</mat-label>-->
+  <!--<input type="text" matInput required [(ngModel)]="data.comment" disabled>-->
+  <!--</mat-form-field>-->
+  <!--<mat-form-field class="w-100">-->
+  <!--<mat-label>Professor</mat-label>-->
+  <!--<input type="text" matInput required [(ngModel)]="data.professor" disabled>-->
+  <!--</mat-form-field>-->
+  <!--<mat-form-field class="w-100">-->
+  <!--<mat-label>Student</mat-label>-->
+  <!--<input type="text" matInput required [(ngModel)]="data.student" disabled>-->
+  <!--</mat-form-field>-->
+  <!--<mat-form-field class="w-100">-->
+  <!--<mat-label>School subject</mat-label>-->
+  <!--<input type="text" matInput required [(ngModel)]="data.schoolSubject" disabled>-->
+  <!--</mat-form-field>-->
+  <!--<mat-form-field class="w-100">-->
+  <!--<mat-label>School class</mat-label>-->
+  <!--<input type="text" matInput required [(ngModel)]="data.schoolClass" disabled>-->
+  <!--</mat-form-field>-->
+</div>
+<div mat-dialog-actions class="w-100">
+  <div class="row w-100">
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-10 col-sm-12 text-center p-1 w-100">
+      <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial
+              (click)="addGrade()">Add
+      </button>
+    </div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-10 col-sm-12 text-center p-1 w-100">
+      <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial
+              (click)="onNoClick()">Close
+      </button>
+    </div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+
+  </div>
+</div>

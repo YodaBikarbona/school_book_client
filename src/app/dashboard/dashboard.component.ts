@@ -62,6 +62,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
       route: 'profile',
     },
     {
+      displayName: 'Join to class room',
+      iconName: 'meeting_room',
+      route: 'class_room',
+    },
+    {
       displayName: 'Options',
       disabled: true,
       iconName: 'settings',

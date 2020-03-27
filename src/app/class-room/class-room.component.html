@@ -1,0 +1,94 @@
+<div class="classRooms">
+  <div class="row">
+    <div class="col-md-4 col-sm-12 pl-2 pr-2" *ngFor="let classRoom of schoolClasses">
+      <div class="text-center mt-1 w-100">
+        <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial
+                (click)="joinClassRoom(classRoom.id)"
+                [disabled]="!classRoom.is_active" *ngIf="classRoom.is_active">{{classRoom.name}} {{classRoom.school_year}}
+        </button>
+        <button type="button" mat-raised-button class="btn-block w-100 disabled" cdkFocusInitial
+                (click)="joinClassRoom(classRoom.id)"
+                [disabled]="!classRoom.is_active" *ngIf="!classRoom.is_active">{{classRoom.name}} {{classRoom.school_year}}
+        </button>
+      </div>
+    </div>
+    <div class="col-md-12 col-sm-12 p-2 text-center" *ngIf="schoolSubjectsLength === 0 && schoolClassChosen">
+      <p class="notFoundTitle">OOPS!</p>
+      <p class="notFoundContent">ERROR 404: School classes not found!</p>
+    </div>
+    <div class="col-md-10 col-sm-12">
+    </div>
+  </div>
+  <div class="row mt-2 mr-2 ml-2 p-2 classRoomContent" *ngIf="classRoomId && studentInfo">
+    <div class="col-md-3 col-sm-12 mb-1 text-left">
+      Student: {{studentInfo.first_name}} {{studentInfo.last_name}}
+    </div>
+    <div class="col-md-3 col-sm-12 mb-1 text-center">
+      Birth day: {{studentInfo.birth_date}}
+    </div>
+    <div class="col-md-3 col-sm-12 mb-1 text-center">
+      Address: {{studentInfo.address}}, {{studentInfo.city}}
+    </div>
+    <div class="col-md-3 col-sm-12 mb-1 text-right">
+      Gender: {{studentInfo.gender.name}}
+    </div>
+    <div class="col-md-4 col-sm-12 mb-1 text-left" *ngIf="studentInfo.parent_father">
+      Father: {{studentInfo.parent_father.first_name}}
+    </div>
+    <div class="col-md-4 col-sm-12 mb-1 text-center" *ngIf="studentInfo.parent_father">
+      Father email: {{studentInfo.parent_father.email}} {{studentInfo.parent_father.last_name}}
+    </div>
+    <div class="col-md-4 col-sm-12 mb-1 text-right" *ngIf="studentInfo.parent_father">
+      Father number: +{{studentInfo.parent_father.phone}}
+    </div>
+    <div class="col-md-4 col-sm-12 mb-1 text-left" *ngIf="studentInfo.parent_mother">
+      Mother: {{studentInfo.parent_mother.first_name}} {{studentInfo.parent_mother.last_name}}
+    </div>
+    <div class="col-md-4 col-sm-12 mb-1 text-center" *ngIf="studentInfo.parent_mother">
+      Mother email: {{studentInfo.parent_mother.email}}
+    </div>
+    <div class="col-md-4 col-sm-12 mb-1 text-right" *ngIf="studentInfo.parent_mother">
+      Mother number: {{studentInfo.parent_mother.phone}}
+    </div>
+    <div class="col-md-12 col-sm-12 mb-1 text-left">
+      Subjects and grades
+    </div>
+    <div class="w-100 subjectAndGrades row mt-1 pt-1" *ngFor="let subject of studentInfo.school_subjects">
+      <div class="col-md-2 col-sm-12 mb-1 text-left">
+        {{subject.school_subject.school_subject.name}}
+      </div>
+      <div class="col-md-6 col-sm-12 mb-1 text-left">
+        {{subject.school_subject.grades}}
+      </div>
+      <div class="col-md-2 col-sm-12 mb-1 pr-1 text-center">
+        <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial>Grade info
+          </button>
+      </div>
+      <div class="col-md-2 col-sm-12 mb-1 pr-1 text-center">
+        <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial (click)="openDialogNewGrade(classRoomId, studentInfo, subject.school_subject.school_subject)">New grade
+          </button>
+      </div>
+      <!--<div class="col-md-1 col-sm-12 mb-1 text-center">-->
+        <!--<button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial-->
+                  <!--&gt;Closed-->
+          <!--</button>-->
+      <!--</div>-->
+    </div>
+    <div class="col-md-6 col-sm-6 text-left previous">
+      <button type="button" mat-raised-button class="btn-block" matTooltip="Previous student" cdkFocusInitial *ngIf="index > 0" (click)="previousStudent()">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </button>
+      <button type="button" mat-raised-button class="btn-block disabled" matTooltip="Previous student" *ngIf="index === 0" disabled>
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="col-md-6 col-sm-6 text-right next">
+      <button type="button" mat-raised-button class="btn-block" matTooltip="Next student" cdkFocusInitial *ngIf="index < maxIndex" (click)="nextStudent()">
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </button>
+      <button type="button" mat-raised-button class="btn-block disabled" matTooltip="Next student" cdkFocusInitial *ngIf="index === maxIndex" disabled>
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>

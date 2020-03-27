@@ -73,6 +73,8 @@ import { DialogDeleteSchoolClassMemberComponent } from './school-class-members/d
 import { DialogNewSchoolClassSubjectComponent } from './school-class-subjects/new-school-class-subject.component';
 import { DialogEditSchoolClassSubjectComponent } from './school-class-subjects/edit-school-class-subject.component';
 import { DialogDeleteSchoolClassSubjectComponent } from './school-class-subjects/delete-school-class-subject.component';
+import { ClassRoomComponent } from './class-room/class-room.component';
+import { DialogNewGradeComponent } from './class-room/new-grade.component';
 
 
 
@@ -116,6 +118,8 @@ import { DialogDeleteSchoolClassSubjectComponent } from './school-class-subjects
     DialogNewSchoolClassSubjectComponent,
     DialogEditSchoolClassSubjectComponent,
     DialogDeleteSchoolClassSubjectComponent,
+    ClassRoomComponent,
+    DialogNewGradeComponent,
   ],
   imports: [
     BrowserModule,
@@ -174,7 +178,8 @@ import { DialogDeleteSchoolClassSubjectComponent } from './school-class-subjects
     DialogDeleteSchoolClassMemberComponent,
     DialogDeleteSchoolClassSubjectComponent,
     DialogEditSchoolClassSubjectComponent,
-    DialogNewSchoolClassSubjectComponent
+    DialogNewSchoolClassSubjectComponent,
+    DialogNewGradeComponent
   ],
   providers: [NavService, {provide: HTTP_INTERCEPTORS, useClass: JWTHeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]

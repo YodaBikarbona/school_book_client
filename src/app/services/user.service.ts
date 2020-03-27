@@ -23,13 +23,13 @@ export class UserService {
     return this.http.get(`${API_URL}/school_book/users?limit=${limit}&offset=${offset}&is_active=${isActive}&roleId=${roleId}&genderId=${genderId}&birthDate=${birthDate}&search=${search}`);
   }
 
-  addNewUser(first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, birth_date: string, genderId: number, roleId: number, parent_mother: number, parent_father: number, password: string) {
-    const request = new NewUser(first_name, last_name, email, address, city, phone, is_active, birth_date, genderId, roleId, parent_mother, parent_father, password);
+  addNewUser(first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, newsletter: boolean, birth_date: string, genderId: number, roleId: number, parent_mother: number, parent_father: number, password: string) {
+    const request = new NewUser(first_name, last_name, email, address, city, phone, is_active, newsletter, birth_date, genderId, roleId, parent_mother, parent_father, password);
     return this.http.post(`${API_URL}/school_book/admin/users/add`, request);
   }
 
-  editUser(id: number, first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, birth_date: string, genderId: number, roleId: number, parent_mother: number, parent_father: number) {
-    const request = new EditUser(first_name, last_name, email, address, city, phone, is_active, birth_date, genderId, roleId, parent_mother, parent_father);
+  editUser(id: number, first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, newsletter: boolean, birth_date: string, genderId: number, roleId: number, parent_mother: number, parent_father: number) {
+    const request = new EditUser(first_name, last_name, email, address, city, phone, is_active, newsletter, birth_date, genderId, roleId, parent_mother, parent_father);
     return this.http.post(`${API_URL}/school_book/admin/users/user/${id}/edit`, request);
   }
 

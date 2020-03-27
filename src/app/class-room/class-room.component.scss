@@ -1,0 +1,90 @@
+@import "~src/palette";
+
+.classRooms {
+  color: $dark;
+}
+
+button {
+  border-radius: 50px;
+  background-color: $primary !important;
+  color: white !important;
+}
+
+/deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $primary !important;
+}
+
+/deep/ .mat-select-arrow-wrapper {
+  background-color: $primary !important;
+}
+
+/deep/ .mat-input-element:disabled {
+  color: white !important;
+}
+
+/deep/ svg {
+  color: $primary !important;
+}
+
+/deep/ .mat-form-field.mat-focused .mat-form-field-label {
+  color: white !important;
+}
+
+/deep/ .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: white !important;
+}
+
+/deep/ .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: white !important;
+}
+
+/deep/ .mat-form-field.mat-form-field-invalid .email {
+  color: $danger !important;
+}
+
+/deep/ .mat-form-field.mat-form-field-invalid .password {
+  color: $danger !important;
+}
+
+/deep/ .mat-select-panel {
+  @media (max-width: 767px) {
+    min-width: unset !important;
+    width: 90% !important;
+  }
+}
+
+.disabled {
+  background-color: silver !important;
+}
+
+.classRoomContent {
+  //border-radius: 50px;
+  background-color: $primary;
+  color: white;
+  @media (max-width: 899px) {
+    div {
+      text-align: left !important;
+      padding-right: 0;
+      &.next {
+        text-align: right !important;
+      }
+    }
+  }
+  .subjectAndGrades {
+    border-top: 1px solid $dark;
+    button {
+      background-color: $dark !important;
+    }
+  }
+}
+
+.previous, .next {
+  button {
+    background-color: $dark !important;
+    width: 20%;
+    &.disabled {
+      background-color: silver !important;
+      color: $dark !important;
+    }
+  }
+}

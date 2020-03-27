@@ -11,6 +11,7 @@ export interface DialogNewUser {
   city: string;
   phone: string;
   is_active: boolean;
+  newsletter: boolean;
   birth_date: string;
   genderId: number;
   roleId: number;
@@ -50,7 +51,7 @@ export class DialogNewUserComponent implements OnInit {
   }
 
   addNewUser(data: any) {
-    this.userService.addNewUser(data.first_name, data.last_name, data.email, data.address, data.city, data.phone, data.is_active, data.birth_date, data.genderId, data.roleId, data.parent_mother, data.parent_father, data.password).subscribe((data: any) => {
+    this.userService.addNewUser(data.first_name, data.last_name, data.email, data.address, data.city, data.phone, data.is_active, data.newsletter, data.birth_date, data.genderId, data.roleId, data.parent_mother, data.parent_father, data.password).subscribe((data: any) => {
       this.snackBar.open('User is successfully added!', null, {duration: 4000, verticalPosition: 'top'});
       this.dialogRef.close({'added': true});
     }, err => {

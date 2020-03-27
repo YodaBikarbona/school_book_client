@@ -13,6 +13,7 @@ import {SchoolSubjectsComponent} from './school-subjects/school-subjects.compone
 import {SchoolClassesComponent} from './school-classes/school-classes.component';
 import {SchoolClassMembersComponent} from './school-class-members/school-class-members.component';
 import {SchoolClassSubjectsComponent} from './school-class-subjects/school-class-subjects.component';
+import {ClassRoomComponent} from './class-room/class-room.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,11 @@ const routes: Routes = [
   },
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [DashboardGuard],
+    children: [
+      {
+        path: 'class_room', component: ClassRoomComponent
+      }
+    ]
   },
   {
     path: 'parentDashboard', component: DashboardParentComponent, canActivate: [DashboardParentGuard],

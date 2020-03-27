@@ -63,6 +63,7 @@ export class NewUser {
   city: string;
   phone: string;
   is_active: boolean;
+  newsletter: boolean;
   birth_date: string;
   gender_id: number;
   role_id: number;
@@ -70,7 +71,7 @@ export class NewUser {
   parent_father: number;
   password: string;
 
-  constructor(first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, birth_date: string, gender_id: number, role_id: number, parent_mother: number, parent_father: number, password: string) {
+  constructor(first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, newsletter: boolean, birth_date: string, gender_id: number, role_id: number, parent_mother: number, parent_father: number, password: string) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.email = email;
@@ -78,6 +79,7 @@ export class NewUser {
     this.city = city;
     this.phone = phone;
     this.is_active = is_active;
+    this.newsletter = newsletter;
     this.birth_date = birth_date;
     this.gender_id = gender_id;
     this.role_id = role_id;
@@ -95,13 +97,14 @@ export class EditUser {
   city: string;
   phone: string;
   is_active: boolean;
+  newsletter: boolean;
   birth_date: string;
   gender_id: number;
   role_id: number;
   parent_mother: number;
   parent_father: number;
 
-  constructor(first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, birth_date: string, gender_id: number, role_id: number, parent_mother: number, parent_father: number) {
+  constructor(first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, newsletter: boolean, birth_date: string, gender_id: number, role_id: number, parent_mother: number, parent_father: number) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.email = email;
@@ -109,6 +112,7 @@ export class EditUser {
     this.city = city;
     this.phone = phone;
     this.is_active = is_active;
+    this.newsletter = newsletter;
     this.birth_date = birth_date;
     this.gender_id = gender_id;
     this.role_id = role_id;
@@ -196,6 +200,25 @@ export class AddNewSchoolSubjectToSchoolClass {
 
   constructor(is_active: boolean, user_id: number, school_subject_id: number, school_class_id: number) {
     this.is_active = is_active;
+    this.user_id = user_id;
+    this.school_subject_id = school_subject_id;
+    this.school_class_id = school_class_id;
+  }
+}
+
+export class AddNewGrade {
+  grade: number;
+  grade_type: string;
+  comment: string
+  user_id: number;
+  school_subject_id: number;
+  school_class_id: number;
+
+
+  constructor(grade: number, grade_type: string, comment: string, user_id: number, school_subject_id: number, school_class_id: number) {
+    this.grade = grade;
+    this.grade_type = grade_type;
+    this.comment = comment;
     this.user_id = user_id;
     this.school_subject_id = school_subject_id;
     this.school_class_id = school_class_id;
