@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {SchoolService} from '../services/school.services';
 import {DialogNewGradeComponent} from './new-grade.component';
 import {MatDialog} from '@angular/material';
+import {DialogGradeInfoComponent} from './grade-info.component';
+import {DialogAbsencesInfoComponent} from './absences-info.component';
+import {DialogNewAbsenceComponent} from './new-absence.component';
 
 @Component({
   selector: 'app-class-room',
@@ -78,6 +81,62 @@ export class ClassRoomComponent implements OnInit {
       if (result.added === true) {
         this.schoolClassInformation();
       }
+    });
+  }
+
+  openDialogAbsences(classRoomId, studentInfo): void {
+    const dialogRef = this.dialog.open(DialogAbsencesInfoComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        schoolClassId: classRoomId,
+        studentId: studentInfo.id,
+        absences: null,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
+  openDialogNewAbsence(classRoomId, studentInfo): void {
+    const dialogRef = this.dialog.open(DialogNewAbsenceComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        schoolClassId: classRoomId,
+        studentId: studentInfo.id,
+        comment: '',
+        title: '',
+        isJustified: false,
+        schoolSubjects: null,
+        schoolSubjectId: null,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
+  openDialogGradeInformation(grades_info): void {
+    let modalGradeInfo: any;
+    modalGradeInfo = JSON.parse(JSON.stringify(grades_info));
+    for (let i = 0; i < modalGradeInfo.length; i++) {
+      const created = modalGradeInfo[i].created.split('T');
+      const date = created[0];
+      const time = created[1].split('Z')[0];
+      modalGradeInfo[i].created = date + ' ' + time;
+    }
+    const dialogRef = this.dialog.open(DialogGradeInfoComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        grades: modalGradeInfo,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      modalGradeInfo = null;
     });
   }
 }

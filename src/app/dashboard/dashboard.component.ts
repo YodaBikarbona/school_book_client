@@ -57,20 +57,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
   @ViewChild('appDrawer') appDrawer: ElementRef;
   navItems: NavItem[] = [
     {
-      displayName: 'Profile',
-      iconName: 'account_circle',
-      route: 'profile',
-    },
-    {
       displayName: 'Join to class room',
       iconName: 'meeting_room',
       route: 'class_room',
     },
     {
-      displayName: 'Options',
-      disabled: true,
-      iconName: 'settings',
-      route: 'settings',
+      displayName: 'Events',
+      iconName: 'event',
+      route: 'events',
     },
   ];
 

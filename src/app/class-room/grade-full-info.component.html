@@ -1,0 +1,57 @@
+<div mat-dialog-content class="text-center dialog gradeFullInfoModal">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Created</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.gradeInfo.created" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>School subject</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.gradeInfo.school_subject.name" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Professor first name</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.gradeInfo.professor.first_name" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Professor last name</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.gradeInfo.professor.last_name" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Grade</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.gradeInfo.grade" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Grade type</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.gradeInfo.grade_type" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Comment</mat-label>
+        <textarea type="text" matInput required [(ngModel)]="data.gradeInfo.comment" disabled></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="w-100">
+  <div class="row w-100">
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-10 col-sm-12 text-center p-1 w-100">
+      <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial
+              (click)="onNoClick()">Close
+      </button>
+    </div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+  </div>
+</div>

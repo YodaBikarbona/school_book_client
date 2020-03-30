@@ -209,7 +209,7 @@ export class AddNewSchoolSubjectToSchoolClass {
 export class AddNewGrade {
   grade: number;
   grade_type: string;
-  comment: string
+  comment: string;
   user_id: number;
   school_subject_id: number;
   school_class_id: number;
@@ -222,5 +222,39 @@ export class AddNewGrade {
     this.user_id = user_id;
     this.school_subject_id = school_subject_id;
     this.school_class_id = school_class_id;
+  }
+}
+
+export class EditAbsence {
+  absence_id: number;
+  comment: string;
+  is_justified: boolean;
+  title: string;
+
+
+  constructor(absence_id: number, comment: string, is_justified: boolean, title: string) {
+    this.absence_id = absence_id;
+    this.comment = comment;
+    this.is_justified = is_justified;
+    this.title = title;
+  }
+}
+
+export class NewAbsence {
+  student_id: number;
+  school_class_id: number;
+  school_subject_id: number;
+  comment: string;
+  is_justified: boolean;
+  title: string;
+
+
+  constructor(student_id: number, school_class_id: number, school_subject_id: number, comment: string, is_justified: boolean, title: string) {
+    this.student_id = student_id;
+    this.school_class_id = school_class_id;
+    this.school_subject_id = school_subject_id;
+    this.comment = comment;
+    this.is_justified = is_justified;
+    this.title = title;
   }
 }

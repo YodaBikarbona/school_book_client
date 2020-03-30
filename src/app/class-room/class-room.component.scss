@@ -70,7 +70,7 @@ button {
       }
     }
   }
-  .subjectAndGrades {
+  .subjectAndGrades, .absencesButtons {
     border-top: 1px solid $dark;
     button {
       background-color: $dark !important;
@@ -86,5 +86,11 @@ button {
       background-color: silver !important;
       color: $dark !important;
     }
+  }
+}
+
+.removed {
+  @media (max-width: 899px) {
+    display: none;
   }
 }

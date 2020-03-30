@@ -75,6 +75,11 @@ import { DialogEditSchoolClassSubjectComponent } from './school-class-subjects/e
 import { DialogDeleteSchoolClassSubjectComponent } from './school-class-subjects/delete-school-class-subject.component';
 import { ClassRoomComponent } from './class-room/class-room.component';
 import { DialogNewGradeComponent } from './class-room/new-grade.component';
+import { DialogGradeInfoComponent } from './class-room/grade-info.component';
+import { DialogGradeFullInfoComponent } from './class-room/grade-full-info.component';
+import { DialogAbsencesInfoComponent } from './class-room/absences-info.component';
+import { DialogEditAbsenceComponent } from './class-room/edit-absence.component';
+import { DialogNewAbsenceComponent } from './class-room/new-absence.component';
 
 
 
@@ -120,6 +125,11 @@ import { DialogNewGradeComponent } from './class-room/new-grade.component';
     DialogDeleteSchoolClassSubjectComponent,
     ClassRoomComponent,
     DialogNewGradeComponent,
+    DialogGradeInfoComponent,
+    DialogGradeFullInfoComponent,
+    DialogAbsencesInfoComponent,
+    DialogEditAbsenceComponent,
+    DialogNewAbsenceComponent,
   ],
   imports: [
     BrowserModule,
@@ -179,7 +189,12 @@ import { DialogNewGradeComponent } from './class-room/new-grade.component';
     DialogDeleteSchoolClassSubjectComponent,
     DialogEditSchoolClassSubjectComponent,
     DialogNewSchoolClassSubjectComponent,
-    DialogNewGradeComponent
+    DialogNewGradeComponent,
+    DialogGradeInfoComponent,
+    DialogGradeFullInfoComponent,
+    DialogAbsencesInfoComponent,
+    DialogEditAbsenceComponent,
+    DialogNewAbsenceComponent
   ],
   providers: [NavService, {provide: HTTP_INTERCEPTORS, useClass: JWTHeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]

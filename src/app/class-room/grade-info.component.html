@@ -1,0 +1,44 @@
+<div mat-dialog-content class="text-center dialog gradeInfoModal">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 mt-2 p-2 table">
+      <table mat-table [dataSource]="data.grades" class="col-md-12 col-sm-12">
+        <ng-container matColumnDef="created" class="tableMobile">
+          <th mat-header-cell *matHeaderCellDef class="firstTableRow tableMobile">Created</th>
+          <td mat-cell *matCellDef="let grade" class="firstTableRow tableMobile"> {{ grade.created }} </td>
+        </ng-container>
+        <ng-container matColumnDef="grade" class="text-center">
+          <th mat-header-cell *matHeaderCellDef class="text-center">Grade</th>
+          <td mat-cell *matCellDef="let grade" class="text-center"> {{ grade.grade }} </td>
+        </ng-container>
+        <ng-container matColumnDef="schoolSubject" class="text-center tableMobile">
+          <th mat-header-cell *matHeaderCellDef class="text-center tableMobile">School subject</th>
+          <td mat-cell *matCellDef="let grade" class="text-center tableMobile"> {{ grade.school_subject ? grade.school_subject.name : '' }} </td>
+        </ng-container>
+        <ng-container matColumnDef="professor" class="text-center tableMobile">
+          <th mat-header-cell *matHeaderCellDef class="text-center tableMobile">Professor</th>
+          <td mat-cell *matCellDef="let grade" class="text-center tableMobile"> {{ grade.professor ? grade.professor.first_name : '' }} {{ grade.professor ? grade.professor.last_name : '' }} </td>
+        </ng-container>
+        <ng-container matColumnDef="showDetails">
+          <th mat-header-cell *matHeaderCellDef class="text-center">...</th>
+          <td mat-cell *matCellDef="let grade" class="text-center">
+            <button mat-button matTooltip="Show details"
+                    (click)="openDialogFullGradeInformation(grade)"><i class="material-icons">open_in_new</i></button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="tableHeader"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="data"></tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="w-100">
+  <div class="row w-100">
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-10 col-sm-12 text-center p-1 w-100">
+      <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial
+              (click)="onNoClick()">Close
+      </button>
+    </div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+  </div>
+</div>

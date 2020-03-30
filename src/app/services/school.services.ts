@@ -6,10 +6,10 @@ import {map} from 'rxjs/operators';
 import {
   ActivateOrDeactivateMember, ActivateOrDeactivateSchoolClassSubject,
   ActivationRequest, AddNewGrade,
-  AddNewMemberToSchoolClass, AddNewSchoolSubjectToSchoolClass,
+  AddNewMemberToSchoolClass, AddNewSchoolSubjectToSchoolClass, EditAbsence,
   EditRole,
   EditSchoolClass,
-  EditSchoolSubject,
+  EditSchoolSubject, NewAbsence,
   NewRole,
   NewSchoolClass,
   NewSchoolSubject
@@ -146,4 +146,16 @@ export class SchoolService {
     const request = new AddNewGrade(grade, gradeType, comment, userId, schoolSubjectId, schoolClassId);
     return this.http.post(`${API_URL}/school_book/school_classes/new_grade`, request);
   }
+
+  editAbsence(absenceId: number, comment: string, isJustified: boolean, title: string) {
+    const request = new EditAbsence(absenceId, comment, isJustified, title);
+    return this.http.post(`${API_URL}/school_book/school_classes/absences/edit_absence`, request);
+  }
+
+  newAbsence(studentId: number, schoolClassId: number, schoolSubjectId: number, comment: string, isJustified: boolean, title: string) {
+    const request = new NewAbsence(studentId, schoolClassId, schoolSubjectId, comment, isJustified, title);
+    return this.http.post(`${API_URL}/school_book/school_classes/absences/new_absence`, request);
+  }
 }
+
+

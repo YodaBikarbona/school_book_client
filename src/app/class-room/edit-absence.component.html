@@ -1,0 +1,62 @@
+<div mat-dialog-content class="text-center dialog editAbsenceModal">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Created</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.created" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>School subject</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.schoolSubject" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Professor</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.professor" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Student</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.student" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Title</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.title">
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Comment</mat-label>
+        <textarea type="text" matInput required [(ngModel)]="data.comment"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="w-100 text-left mb-1">
+      <mat-label class="mr-1">Justified</mat-label>
+      <mat-checkbox [(ngModel)]="data.isJustified" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="w-100">
+  <div class="row w-100">
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-10 col-sm-12 text-center p-1 w-100">
+      <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial
+              (click)="editAbsence()">Edit
+      </button>
+    </div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-10 col-sm-12 text-center p-1 w-100">
+      <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial
+              (click)="onNoClick()">Close
+      </button>
+    </div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+  </div>
+</div>

@@ -42,6 +42,8 @@ export class GradesComponent implements OnInit {
       this.schoolClasses = data.results;
     });
     this.schoolClassId = undefined;
+    this.schoolSubjectId = 0;
+    this.isSchoolSubjectChosen = false;
   }
 
   onChangeSchoolClass(event) {
@@ -53,6 +55,7 @@ export class GradesComponent implements OnInit {
 
     });
     this.getAllGrades();
+    this.isSchoolSubjectChosen = true;
   }
 
   onChangeSchoolSubject(event) {

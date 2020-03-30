@@ -1,0 +1,123 @@
+@import "~src/palette";
+
+button {
+  border-radius: 50px;
+  background-color: $primary !important;
+  color: white !important;
+  transition: background-color 500ms ease;
+  @media (max-width: 767px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  &:hover {
+    background-color: #293132 !important;
+    transition: background-color 500ms ease;
+  }
+}
+
+.gradeInfoModal {
+  /deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: $primary !important;
+  }
+
+  /deep/ .mat-select-arrow-wrapper {
+    background-color: $primary !important;
+  }
+
+  /deep/ .mat-input-element:disabled {
+    color: $primary !important;
+  }
+
+  /deep/ svg {
+    color: $primary !important;
+  }
+
+  /deep/ .mat-form-field.mat-focused .mat-form-field-label {
+    color: white !important;
+  }
+
+  /deep/ .mat-form-field-appearance-legacy .mat-form-field-label {
+    color: white !important;
+  }
+
+  /deep/ .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: white !important;
+  }
+
+  /deep/ .mat-form-field.mat-form-field-invalid .email {
+    color: $danger !important;
+  }
+
+  /deep/ .mat-form-field.mat-form-field-invalid .password {
+    color: $danger !important;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: unset;
+    -webkit-text-fill-color: #F2FBE0;
+    -webkit-box-shadow: 0 0 0px 1000px #424242 inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.buttons {
+  @media (max-width: 767px) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+.buttonDelete {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 10px;
+
+  button {
+    background-color: $danger !important;
+  }
+}
+
+.footer {
+  @media (max-width: 767px) {
+    height: 200px;
+    overflow-y: scroll;
+  }
+}
+
+.active {
+  background-color: #293132 !important;
+}
+
+textarea {
+  min-height: 200px;
+  resize: none !important;
+}
+
+.removed {
+  @media (max-width: 899px) {
+    display: none;
+  }
+}
+
+/deep/ th.mat-header-cell {
+  text-align: center !important;
+}
+
+.firstTableRow {
+  text-align: left !important;
+}
+
+/deep/ .tableMobile {
+  @media(max-width: 767px) {
+    display: none;
+  }
+}

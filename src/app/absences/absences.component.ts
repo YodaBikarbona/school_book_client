@@ -40,6 +40,7 @@ export class AbsencesComponent implements OnInit {
     this.childId = event.value;
     this.schoolService.getAllSchoolClassesByStudentId(0, 0, this.childId).subscribe((data: any) => {
       this.schoolClasses = data.results;
+    }, err => {
     });
     this.schoolClassId = 0;
     this.schoolSubjectId = 0;
@@ -76,7 +77,6 @@ export class AbsencesComponent implements OnInit {
     this.schoolService.getAllSchoolClassSubjects(this.schoolClassId, 0, 0).subscribe((data: any) => {
       this.schoolSubjects = data.results;
     }, err => {
-
     });
     this.getAllAbsences();
   }
