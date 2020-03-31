@@ -1,0 +1,73 @@
+<div mat-dialog-content class="text-center dialog newEventModal">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 p-1">
+      <mat-form-field class="w-100">
+        <mat-label>School class</mat-label>
+        <mat-select (selectionChange)="onChangeSchoolClass($event)" [(ngModel)]="data.schoolClassId">
+          <mat-option *ngFor="let schoolClass of schoolClasses" [value]="schoolClass.id">
+            <p>{{ schoolClass.name }}</p>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 p-1">
+      <mat-form-field class="w-100">
+        <mat-label>School subject</mat-label>
+        <mat-select (selectionChange)="onChangeSchoolSubject($event)"  [(ngModel)]="data.schoolSubjectId">
+          <mat-option *ngFor="let schoolSubject of schoolSubjects" [value]="schoolSubject.school_subject.id">
+            <p>{{ schoolSubject.school_subject.name }}</p>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <input matInput [matDatepicker]="pickerTo"
+               placeholder="Event date" disabled (dateChange)="onChangeDate($event)"
+                required>
+        <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #pickerTo disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1" *ngIf="data.date">
+      <mat-form-field>
+        <mat-label>Hours</mat-label>
+        <input type="number" step="1" [max]="23" [min]="0" matInput required [(ngModel)]="data.hours" (change)="onChangeHoursMinutes()">
+      </mat-form-field>:
+      <mat-form-field>
+        <mat-label>Minutes</mat-label>
+        <input type="number" step="1" [max]="59" [min]="0" matInput required [(ngModel)]="data.minutes" (change)="onChangeHoursMinutes()">
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Title</mat-label>
+        <input type="text" matInput required [(ngModel)]="data.title">
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 col-sm-12 text-center p-1">
+      <mat-form-field class="w-100">
+        <mat-label>Comment</mat-label>
+        <textarea type="text" matInput required [(ngModel)]="data.comment"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="w-100">
+  <div class="row w-100">
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-10 col-sm-12 text-center p-1 w-100">
+      <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial
+              (click)="addEvent()">Add
+      </button>
+    </div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+    <div class="col-md-10 col-sm-12 text-center p-1 w-100">
+      <button type="button" mat-raised-button class="btn-block w-100" cdkFocusInitial
+              (click)="onNoClick()">Close
+      </button>
+    </div>
+    <div class="col-md-1 col-sm-0 removed"></div>
+  </div>
+</div>

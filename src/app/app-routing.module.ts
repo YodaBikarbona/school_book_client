@@ -14,6 +14,7 @@ import {SchoolClassesComponent} from './school-classes/school-classes.component'
 import {SchoolClassMembersComponent} from './school-class-members/school-class-members.component';
 import {SchoolClassSubjectsComponent} from './school-class-subjects/school-class-subjects.component';
 import {ClassRoomComponent} from './class-room/class-room.component';
+import {ProfessorEventsComponent} from './events/professor-events.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,9 @@ const routes: Routes = [
     children: [
       {
         path: 'class_room', component: ClassRoomComponent
+      },
+      {
+        path: 'events', component: ProfessorEventsComponent
       }
     ]
   },

@@ -28,7 +28,7 @@ export class DialogDeleteRoleComponent implements OnInit {
       this.snackBar.open('Role is successfully deleted!', null, {duration: 4000, verticalPosition: 'top'});
       this.dialogRef.close({'deleted': true});
     }, err => {
-      this.snackBar.open('Role is not successfully deleted!', null, {duration: 4000, verticalPosition: 'top'});
+      this.snackBar.open('Role is not deleted!', null, {duration: 4000, verticalPosition: 'top'});
       this.dialogRef.close({'deleted': false});
     });
   }

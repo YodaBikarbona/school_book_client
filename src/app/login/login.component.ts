@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   authentcationRequest: AuthenticationRequest = null;
   currentEmail = '';
   currentPassword = '';
+  email: string;
+  password: string;
   constructor(public authService: AuthenticationService, public router: Router, private spinner: NgxSpinnerService, private snackBar: MatSnackBar, private dialog: MatDialog) { }
 
   ngOnInit() {

@@ -1,0 +1,43 @@
+<div class="professorEvents">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 mt-2 p-2 table" *ngIf="eventsLength > 0">
+      <table mat-table [dataSource]="events" class="col-md-12 col-sm-12">
+        <ng-container matColumnDef="created" class="text-center tableMobile">
+          <th mat-header-cell *matHeaderCellDef class="firstTableRow tableMobile">Created</th>
+          <td mat-cell *matCellDef="let event" class="tableMobile"> {{ event.created }} </td>
+        </ng-container>
+        <ng-container matColumnDef="date" class="tableMobile">
+          <th mat-header-cell *matHeaderCellDef class="text-center tableMobile">Date</th>
+          <td mat-cell *matCellDef="let event" class="text-center tableMobile"> {{ event.date }} </td>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef class="text-center">Title</th>
+          <td mat-cell *matCellDef="let event" class="text-center"> {{ event.title }} </td>
+        </ng-container>
+        <ng-container matColumnDef="schoolClass">
+          <th mat-header-cell *matHeaderCellDef class="text-center">School class</th>
+          <td mat-cell *matCellDef="let event" class="text-center"> {{ event.school_class.name }} </td>
+        </ng-container>
+        <ng-container matColumnDef="schoolSubject">
+          <th mat-header-cell *matHeaderCellDef class="text-center">School subject</th>
+          <td mat-cell *matCellDef="let event" class="text-center"> {{ event.school_subject.name }} </td>
+        </ng-container>
+        <ng-container matColumnDef="deleteEvent">
+          <th mat-header-cell *matHeaderCellDef class="text-center">...</th>
+          <td mat-cell *matCellDef="let event" class="text-center">
+            <button mat-button matTooltip="Delete an event"
+                    (click)="openDialogDeleteEvent(event)"><i class="material-icons">delete</i></button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="tableHeader"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="data"></tr>
+      </table>
+    </div>
+    <div class="col-md-10 col-sm-12">
+    </div>
+    <div class="col-md-2 col-sm-12 p-2 newRole">
+      <button mat-raised-button color="primary" matTooltip="Add a new event" class="w-100"
+              (click)="openDialogNewEvent()"><i class="material-icons">add_circle_outline</i></button>
+    </div>
+  </div>
+</div>

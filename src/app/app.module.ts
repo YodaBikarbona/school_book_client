@@ -64,9 +64,6 @@ import { DialogDeleteSchoolClassComponent } from './school-classes/delete-school
 import { DialogEditSchoolClassComponent } from './school-classes/edit-school-class.component';
 import { SchoolClassMembersComponent } from './school-class-members/school-class-members.component';
 import { DialogNewSchoolClassMemberComponent } from './school-class-members/new-school-class-member.component';
-
-// Font awesome
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { DialogEditSchoolClassMemberComponent } from './school-class-members/edit-school-class-member.component';
 import { SchoolClassSubjectsComponent } from './school-class-subjects/school-class-subjects.component';
 import { DialogDeleteSchoolClassMemberComponent } from './school-class-members/delete-school-class-member.component';
@@ -80,9 +77,12 @@ import { DialogGradeFullInfoComponent } from './class-room/grade-full-info.compo
 import { DialogAbsencesInfoComponent } from './class-room/absences-info.component';
 import { DialogEditAbsenceComponent } from './class-room/edit-absence.component';
 import { DialogNewAbsenceComponent } from './class-room/new-absence.component';
+import { ProfessorEventsComponent } from './events/professor-events.component';
+import { DialogDeleteEventComponent } from './events/delete-event.component';
+import { DialogNewEventComponent } from './events/new-event.component';
 
-
-
+// Font awesome
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -130,6 +130,9 @@ import { DialogNewAbsenceComponent } from './class-room/new-absence.component';
     DialogAbsencesInfoComponent,
     DialogEditAbsenceComponent,
     DialogNewAbsenceComponent,
+    ProfessorEventsComponent,
+    DialogDeleteEventComponent,
+    DialogNewEventComponent,
   ],
   imports: [
     BrowserModule,
@@ -194,7 +197,9 @@ import { DialogNewAbsenceComponent } from './class-room/new-absence.component';
     DialogGradeFullInfoComponent,
     DialogAbsencesInfoComponent,
     DialogEditAbsenceComponent,
-    DialogNewAbsenceComponent
+    DialogNewAbsenceComponent,
+    DialogDeleteEventComponent,
+    DialogNewEventComponent
   ],
   providers: [NavService, {provide: HTTP_INTERCEPTORS, useClass: JWTHeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]

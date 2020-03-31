@@ -70,7 +70,7 @@ export class SchoolClassesComponent implements OnInit {
     });
   }
 
-  openDialogNewSchoolClass(request): void {
+  openDialogNewSchoolClass(): void {
     const dialogRef = this.dialog.open(DialogNewSchoolClassComponent, {
       width: '600px',
       disableClose: true,

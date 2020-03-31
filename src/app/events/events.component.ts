@@ -15,7 +15,11 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.schoolService.getAllEvents().subscribe((data: any) => {
+    this.getAllEvents();
+  }
+
+  getAllEvents() {
+    this.schoolService.getAllParentEvents().subscribe((data: any) => {
       this.events = data.results;
       if (this.events && this.events.length > 0) {
         for (let i = 0; i < this.events.length; i++) {

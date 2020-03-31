@@ -56,7 +56,7 @@ export class SchoolSubjectsComponent implements OnInit {
     });
   }
 
-  openDialogNewSchoolSubject(request): void {
+  openDialogNewSchoolSubject(): void {
     const dialogRef = this.dialog.open(DialogNewSchoolSubjectComponent, {
       width: '300px',
       disableClose: true,

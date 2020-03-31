@@ -24,7 +24,7 @@ export class DialogEditSchoolClassComponent implements OnInit {
     this.dialogRef.close({'edited': false});
   }
 
-  addNewSchoolClass() {
+  editNewSchoolClass() {
     this.schoolService.editSchoolClass(this.data.schoolClassId, this.data.schoolClassName, this.data.isActive).subscribe((data: any) => {
       this.snackBar.open('School class is successfully edited!', null, {duration: 4000, verticalPosition: 'top'});
       this.dialogRef.close({'edited': true});

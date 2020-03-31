@@ -32,7 +32,6 @@ export class DialogAbsencesInfoComponent implements OnInit {
   getAllAbsences() {
     this.schoolService.getAllAbsences(this.data.schoolClassId, this.data.studentId, 0, 'null').subscribe((data: any) => {
       this.data.absences = data.results;
-      console.log(this.data.absences)
       if (this.data.absences !== undefined) {
         for (let i = 0; i < this.data.absences.length; i++) {
           const created = this.data.absences[i].created.split('T');

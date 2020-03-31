@@ -18,7 +18,6 @@ export class DialogGradeInfoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log(this.data.grades)
   }
 
   ngOnDestroy(): void {

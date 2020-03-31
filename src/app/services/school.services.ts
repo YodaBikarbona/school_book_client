@@ -9,7 +9,7 @@ import {
   AddNewMemberToSchoolClass, AddNewSchoolSubjectToSchoolClass, EditAbsence,
   EditRole,
   EditSchoolClass,
-  EditSchoolSubject, NewAbsence,
+  EditSchoolSubject, NewAbsence, NewEvent,
   NewRole,
   NewSchoolClass,
   NewSchoolSubject
@@ -68,8 +68,12 @@ export class SchoolService {
     return this.http.get(`${API_URL}/school_book/school_class/${schoolClassId}/child/${childId}/school_subject/${schoolSubjectId}/grades`);
   }
 
-  getAllEvents() {
+  getAllParentEvents() {
     return this.http.get(`${API_URL}/school_book/parent/events`);
+  }
+
+  getAllEvents() {
+    return this.http.get(`${API_URL}/school_book/professor/events`);
   }
 
   getAllAbsences(schoolClassId: number, childId: number, schoolSubjectId: number, isJustified: string) {
@@ -149,12 +153,21 @@ export class SchoolService {
 
   editAbsence(absenceId: number, comment: string, isJustified: boolean, title: string) {
     const request = new EditAbsence(absenceId, comment, isJustified, title);
-    return this.http.post(`${API_URL}/school_book/school_classes/absences/edit_absence`, request);
+    return this.http.put(`${API_URL}/school_book/school_classes/absences/edit_absence`, request);
   }
 
   newAbsence(studentId: number, schoolClassId: number, schoolSubjectId: number, comment: string, isJustified: boolean, title: string) {
     const request = new NewAbsence(studentId, schoolClassId, schoolSubjectId, comment, isJustified, title);
     return this.http.post(`${API_URL}/school_book/school_classes/absences/new_absence`, request);
+  }
+
+  deleteEvent(eventId: number) {
+    return this.http.delete(`${API_URL}/school_book/professor/events/event/${eventId}/delete`);
+  }
+
+  newEvent(schoolClassId: number, schoolSubjectId: number, title: string, comment: string, date: string) {
+    const request = new NewEvent(schoolClassId, schoolSubjectId, title, comment, date);
+    return this.http.post(`${API_URL}/school_book/professor/events/add`, request);
   }
 }
 

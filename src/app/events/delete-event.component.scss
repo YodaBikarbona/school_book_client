@@ -1,0 +1,54 @@
+@import "~src/palette";
+
+button {
+  border-radius: 50px;
+  background-color: $primary !important;
+  color: white !important;
+}
+
+.deleteEventModal {
+  .delete {
+    button {
+      border-radius: 50px;
+      background-color: $danger !important;
+      color: white !important;
+    }
+
+
+    /deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
+      background-color: $primary !important;
+    }
+
+    /deep/ .mat-select-arrow-wrapper {
+      background-color: $primary !important;
+    }
+
+    /deep/ .mat-input-element:disabled {
+      color: $primary !important;
+    }
+
+    /deep/ svg {
+      color: $primary !important;
+    }
+
+    /deep/ .mat-form-field.mat-focused .mat-form-field-label {
+      color: white !important;
+    }
+
+    /deep/ .mat-form-field-appearance-legacy .mat-form-field-label {
+      color: white !important;
+    }
+
+    /deep/ .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+      color: white !important;
+    }
+
+    /deep/ .mat-form-field.mat-form-field-invalid .email {
+      color: $danger !important;
+    }
+
+    /deep/ .mat-form-field.mat-form-field-invalid .password {
+      color: $danger !important;
+    }
+  }
+}

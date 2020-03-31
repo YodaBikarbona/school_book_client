@@ -25,8 +25,7 @@ export class DialogActivationComponent implements OnInit {
     this.dialogRef.close({'is_active': false});
   }
 
-  activateUser(code: string) {
-    this.data.code = code;
+  activateUser() {
     this.userService.activateUser(this.data.email, this.data.code).subscribe(
       data => {
         this.dialogRef.close({'is_active': true});

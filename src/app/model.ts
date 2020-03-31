@@ -258,3 +258,21 @@ export class NewAbsence {
     this.title = title;
   }
 }
+
+export class NewEvent {
+  school_class_id: number;
+  school_subject_id: number;
+  title: string;
+  comment: string;
+  date: string;
+
+
+  constructor(school_class_id: number, school_subject_id: number, title: string, comment: string, date: string) {
+    this.school_class_id = school_class_id;
+    this.school_subject_id = school_subject_id;
+    this.title = title;
+    this.comment = comment;
+    this.date = date;
+
+  }
+}

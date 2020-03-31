@@ -30,7 +30,7 @@ export class UserService {
 
   editUser(id: number, first_name: string, last_name: string, email: string, address: string, city: string, phone: string, is_active: boolean, newsletter: boolean, birth_date: string, genderId: number, roleId: number, parent_mother: number, parent_father: number) {
     const request = new EditUser(first_name, last_name, email, address, city, phone, is_active, newsletter, birth_date, genderId, roleId, parent_mother, parent_father);
-    return this.http.post(`${API_URL}/school_book/admin/users/user/${id}/edit`, request);
+    return this.http.put(`${API_URL}/school_book/admin/users/user/${id}/edit`, request);
   }
 
   deleteUser(id: number) {
